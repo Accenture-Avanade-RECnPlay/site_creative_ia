@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Editor com IA - Pague Menos Creative Hub</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Hanken Grotesk & JetBrains Mono Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with forms/container plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-container": "#81aeff",
+            "on-primary-fixed": "#410001",
+            "tertiary-container": "#0077b4",
+            "surface-tint": "#c0000c",
+            "surface-container-low": "#f2f3ff",
+            "surface-variant": "#dae2fd",
+            "secondary-fixed-dim": "#abc7ff",
+            "on-primary-container": "#fff5f3",
+            "on-secondary-fixed": "#001b3f",
+            "primary-container": "#e30613",
+            "on-surface": "#131b2e",
+            "primary-fixed": "#ffdad5",
+            "on-error-container": "#93000a",
+            "on-secondary-container": "#004085",
+            "outline-variant": "#e9bcb6",
+            "surface-container-highest": "#dae2fd",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#d7e3ff",
+            "surface-container": "#eaedff",
+            "inverse-primary": "#ffb4aa",
+            "primary-fixed-dim": "#ffb4aa",
+            "secondary": "#2a5da9",
+            "on-secondary-fixed-variant": "#00458f",
+            "error-container": "#ffdad6",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary": "#ffffff",
+            "surface-container-high": "#e2e7ff",
+            "surface-bright": "#faf8ff",
+            "surface": "#faf8ff",
+            "on-surface-variant": "#5e3f3b",
+            "tertiary-fixed": "#cce5ff",
+            "on-tertiary-fixed": "#001d31",
+            "inverse-surface": "#283044",
+            "on-tertiary-container": "#f2f7ff",
+            "on-tertiary": "#ffffff",
+            "inverse-on-surface": "#eef0ff",
+            "tertiary-fixed-dim": "#93ccff",
+            "surface-dim": "#d2d9f4",
+            "outline": "#936e69",
+            "background": "#faf8ff",
+            "on-primary": "#ffffff",
+            "on-primary-fixed-variant": "#930007",
+            "error": "#ba1a1a",
+            "tertiary": "#005d8f",
+            "primary": "#b5000b",
+            "on-background": "#131b2e",
+            "on-tertiary-fixed-variant": "#004b73"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem",
+            "margin-mobile": "1rem",
+            "space-md": "1rem",
+            "margin": "2rem",
+            "gutter": "1.5rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "gutter-mobile": "0.75rem"
+          },
+          "fontFamily": {
+            "headline-lg-mobile": ["Hanken Grotesk"],
+            "title-md": ["Hanken Grotesk"],
+            "body-lg": ["Hanken Grotesk"],
+            "body-sm": ["Hanken Grotesk"],
+            "body-md": ["Hanken Grotesk"],
+            "code-sm": ["JetBrains Mono"],
+            "headline-lg": ["Hanken Grotesk"],
+            "headline-sm": ["Hanken Grotesk"],
+            "headline-md": ["Hanken Grotesk"],
+            "display-lg": ["Hanken Grotesk"],
+            "label-md": ["Hanken Grotesk"]
+          },
+          "fontSize": {
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "code-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-md": ["13px", { "lineHeight": "18px", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Custom split-view comparison slider styling */
+    .comparison-container {
+      position: relative;
+      overflow: hidden;
+    }
+    .comparison-slider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #e30613;
+      left: 52%;
+      cursor: ew-resize;
+      z-index: 20;
+    }
+    .comparison-handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 28px;
+      height: 28px;
+      border-radius: 9999px;
+      background: #ffffff;
+      border: 2px solid #e30613;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e30613;
+    }
+    /* Subtle custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface h-full flex flex-col font-body-md overflow-hidden antialiased">
+<!-- ============================================================== -->
+<!-- 1. TOP APP BAR (Shared Components JSON execution)             -->
+<!-- ============================================================== -->
+<header class="docked full-width top sticky top-0 z-30 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/30 flex items-center justify-between w-full h-16 px-6">
+<!-- Brand / Search Bar Left -->
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-primary-container text-white flex items-center justify-center font-bold font-headline-sm text-headline-sm shadow-sm">P</span>
+<span class="text-headline-sm font-headline-sm font-bold text-secondary tracking-tight">Pague Menos Creative Hub</span>
+</div>
+<!-- Quick Search input -->
+<div class="relative w-72 hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full pl-9 pr-3 py-1.5 bg-surface-container-low text-on-surface text-body-sm font-body-sm rounded-lg border border-outline-variant/30 focus:border-secondary focus:ring-1 focus:ring-secondary/20 transition-all outline-none" placeholder="Buscar campanhas, regras, ativos..." type="text"/>
+</div>
+</div>
+<!-- Active Campaign Context Summary Bar -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 px-3 py-1 bg-surface-container rounded-lg border border-outline-variant/20">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-title-md text-body-sm font-semibold text-on-surface">Campanha: Verão sem Complicação 2025</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 bg-surface-container-low rounded-lg border border-outline-variant/20 text-on-surface-variant text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-[16px]">crop_portrait</span>
+<span>Instagram Feed (4:5)</span>
+</div>
+<div class="flex items-center gap-1 px-2.5 py-1 bg-surface-container-low rounded-lg border border-outline-variant/20 text-on-surface-variant text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span>São Paulo (SE)</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 bg-surface-container-highest rounded-lg text-secondary font-code-sm text-code-sm font-semibold">
+<span>v2.1</span>
+</div>
+<!-- Badge: Ajustes Solicitados - Revisão Pendente -->
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+        Ajustes Solicitados - Revisão Pendente
+      </span>
+</div>
+<!-- Trailing Actions & User Profile -->
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary-container text-white text-body-sm font-semibold hover:bg-primary transition-all duration-150 active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Nova Campanha</span>
+</button>
+<div class="flex items-center gap-1 border-l border-outline-variant/30 pl-3">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors relative" title="Notificações">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-primary-container"></span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors" title="Ajuda">
+<span class="material-symbols-outlined text-[20px]">help</span>
+</button>
+<div class="flex items-center gap-2 pl-1 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center font-bold font-label-md text-label-md ring-2 ring-surface-container-high">
+            FS
+          </div>
+</div>
+</div>
+</div>
+</header>
+<!-- ============================================================== -->
+<!-- 2. MAIN APP SHELL (SIDEBAR + 2-COLUMN WORKSPACE)              -->
+<!-- ============================================================== -->
+<div class="flex flex-1 overflow-hidden">
+<!-- 2A. LEFT SIDEBAR (Shared Components JSON execution) -->
+<aside class="w-72 bg-surface-container-lowest border-r border-outline-variant/30 flex flex-col justify-between p-4 flex-shrink-0 z-20">
+<!-- Top Branding Section in SideNav -->
+<div>
+<div class="flex items-center gap-3 px-2 py-2 mb-4">
+<div class="w-9 h-9 rounded-xl bg-primary-container text-white flex items-center justify-center font-bold text-headline-sm shadow-md">
+            PM
+          </div>
+<div class="flex flex-col">
+<h1 class="text-headline-sm font-headline-sm font-bold text-secondary leading-tight">Pague Menos</h1>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Marketing Studio</span>
+</div>
+</div>
+<button class="w-full flex items-center justify-center gap-2 px-3 py-2.5 mb-4 rounded-lg bg-surface-container-high text-primary hover:bg-primary-container hover:text-white transition-all font-title-md text-body-sm font-bold shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+          Nova Campanha
+        </button>
+<!-- Navigation Tabs: Exact JSON Match with Active state on 'Editor com IA' -->
+<nav class="space-y-1">
+<!-- 1. Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors font-body-md text-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- 2. Briefing Inteligente -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors font-body-md text-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+<span>Briefing Inteligente</span>
+</a>
+<!-- 3. Conceitos Criativos -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors font-body-md text-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">lightbulb</span>
+<span>Conceitos Criativos</span>
+</a>
+<!-- 4. Adaptações Multicanal -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors font-body-md text-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">dynamic_feed</span>
+<span>Adaptações Multicanal</span>
+</a>
+<!-- 5. Editor com IA (ACTIVE AS PER CONTEXT) -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-surface-container text-primary font-bold shadow-xs relative" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">auto_fix_high</span>
+<span class="font-title-md text-body-sm">Editor com IA</span>
+<span class="w-1.5 h-4 rounded-full bg-primary-container absolute right-2"></span>
+</a>
+<!-- 6. Revisão & Aprovação -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors font-body-md text-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+<span>Revisão &amp; Aprovação</span>
+</a>
+<!-- 7. Biblioteca de Referências -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors font-body-md text-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">auto_stories</span>
+<span>Biblioteca de Referências</span>
+</a>
+<!-- 8. Histórico & Produtividade -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors font-body-md text-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">history_toggle_off</span>
+<span>Histórico &amp; Produtividade</span>
+</a>
+</nav>
+</div>
+<!-- Footer Nav Tabs -->
+<div class="border-t border-outline-variant/20 pt-3 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors font-body-md text-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span>Configurações</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors font-body-md text-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">help_center</span>
+<span>Ajuda &amp; Suporte</span>
+</a>
+<!-- System Safety Compliance Badge in Sidebar -->
+<div class="mt-3 p-2.5 rounded-lg bg-surface-container-low border border-outline-variant/30 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified_user</span>
+<div class="text-[11px] leading-tight text-on-surface-variant">
+<strong class="text-on-surface font-semibold block">Conformidade Anvisa</strong>
+            Protocolo RDC 96/2008 ativo
+          </div>
+</div>
+</div>
+</aside>
+<!-- 2B. WORKSPACE CANVAS (60% Preview + 40% AI Assistant Panel) -->
+<main class="flex-1 flex flex-col bg-background overflow-hidden">
+<!-- Content Splitting Row -->
+<div class="flex-1 flex overflow-hidden">
+<!-- ============================================================== -->
+<!-- COLUNA ESQUERDA (60%): Canvas de Pré-visualização da Peça       -->
+<!-- ============================================================== -->
+<section class="w-[60%] flex flex-col border-r border-outline-variant/30 bg-surface-bright/50">
+<!-- Top Tool Bar for Artwork Controls -->
+<div class="h-12 px-6 bg-surface-container-lowest border-b border-outline-variant/20 flex items-center justify-between flex-shrink-0">
+<div class="flex items-center gap-3">
+<!-- Comparison Mode Toggle -->
+<div class="inline-flex rounded-lg p-0.5 bg-surface-container border border-outline-variant/30 text-body-sm font-body-sm">
+<button class="px-2.5 py-1 rounded-[6px] bg-white font-semibold text-secondary shadow-xs flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">compare</span>
+                  Split Slider (Original vs v2.1)
+                </button>
+<button class="px-2.5 py-1 rounded-[6px] text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+                  Apenas Modificada
+                </button>
+</div>
+<!-- Quick Undo / Revert -->
+<div class="flex items-center gap-1 pl-2 border-l border-outline-variant/30">
+<button class="p-1.5 rounded-md hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Desfazer">
+<span class="material-symbols-outlined text-[18px]">undo</span>
+</button>
+<button class="p-1.5 rounded-md hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Refazer">
+<span class="material-symbols-outlined text-[18px]">redo</span>
+</button>
+<button class="flex items-center gap-1 px-2 py-1 text-xs font-semibold text-on-surface-variant hover:bg-surface-container rounded-md transition-colors" title="Restaurar Original">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span>
+                  Restaurar Original
+                </button>
+</div>
+</div>
+<!-- Canvas Dimensions & Zoom Controls -->
+<div class="flex items-center gap-4 text-xs font-code-sm text-on-surface-variant">
+<span class="px-2 py-0.5 rounded bg-surface-container font-mono">1080 × 1350 px (4:5)</span>
+<div class="flex items-center gap-1 bg-surface-container-low px-2 py-0.5 rounded-md border border-outline-variant/20">
+<button class="p-0.5 hover:text-on-surface"><span class="material-symbols-outlined text-[14px]">remove</span></button>
+<span class="font-mono text-on-surface font-semibold px-1">72%</span>
+<button class="p-0.5 hover:text-on-surface"><span class="material-symbols-outlined text-[14px]">add</span></button>
+</div>
+<button class="p-1 hover:bg-surface-container rounded text-on-surface-variant" title="Ajustar à tela">
+<span class="material-symbols-outlined text-[16px]">fit_screen</span>
+</button>
+</div>
+</div>
+<!-- Interactive Viewport Canvas -->
+<div class="flex-1 overflow-auto p-6 flex items-center justify-center relative bg-[radial-gradient(#CBD5E1_1px,transparent_1px)] [background-size:16px_16px]">
+<!-- Instagram 4:5 Phone Card Frame Container -->
+<div class="relative w-[380px] h-[475px] bg-white rounded-xl shadow-xl border border-outline-variant/40 flex flex-col overflow-hidden select-none">
+<!-- Simulated Instagram Header -->
+<div class="h-10 px-3 bg-white border-b border-slate-100 flex items-center justify-between flex-shrink-0 z-30">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container text-white font-bold text-[10px] flex items-center justify-center">
+                    PM
+                  </div>
+<div class="flex flex-col leading-none">
+<span class="text-xs font-bold text-on-surface flex items-center gap-1">
+                      paguemenos
+                      <span class="material-symbols-outlined text-secondary text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</span>
+<span class="text-[9px] text-slate-400">Patrocinado</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-400 text-[18px]">more_horiz</span>
+</div>
+<!-- Main Artwork Media Area (with split-view simulation) -->
+<div class="relative flex-1 comparison-container overflow-hidden">
+<!-- Background Image of the Campaign Piece (100% full cover) -->
+<div class="absolute inset-0 bg-slate-900">
+<img class="w-full h-full object-cover" data-alt="A vibrant professional pharmaceutical advertising photograph for Pague Menos featuring a modern Brazilian woman smiling serenely while applying dermocosmetic sunscreen in a sunny urban high-rise city setting. Warm golden hour lighting bathes her face while she looks refreshed and protected from ultraviolet rays. Soft warm skin tones, clean corporate pharmaceutical composition, crisp high-end cosmetic aesthetics, with pristine blue sky and subtle modern architectural blur in background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtZ76gilAXClW9S9E9FXWLRJCvT3IpZsfazSXgEXoeJDbVOeeGra7GcaA8UFmsY74E2o6A22ZKrauj7-5-h8NxBWH_B5o98-fdQxRndc--BxJkLbZv0zzh9sjLEIYSV4KNo7wPrn1I5VK1A7X02or5KIFb_oU3cZ2s46Gz73lpoqCXe5kNJHaFcJo_8RUOXin-nofaCWdyMggOlK5udM1A-_NWwNNWgP8OwLwNJtTKKbQCyXQBCaXt3A"/>
+</div>
+<!-- LEFT SIDE (Simulated Before: Lower Contrast text) -->
+<div class="absolute inset-0 pointer-events-none">
+<!-- Gradient overlay for text protection (Modificada) -->
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent"></div>
+</div>
+<!-- Advertising Visual Elements & Typography -->
+<div class="absolute inset-0 p-4 flex flex-col justify-between z-10 pointer-events-none">
+<!-- Top Badge: Categoria Dermocosméticos -->
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-1 rounded-full bg-secondary text-white text-[10px] font-bold tracking-wider uppercase shadow-sm">
+                      Especial Verão 2025
+                    </span>
+<!-- Locked Brand Logo Stamp -->
+<div class="bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/40 shadow-sm flex items-center gap-1">
+<span class="text-[11px] font-black text-primary tracking-tighter">PAGUE MENOS</span>
+<span class="material-symbols-outlined text-secondary text-[10px]" title="Elemento Travado por Governança">lock</span>
+</div>
+</div>
+<!-- Bottom Graphic Elements: Headline + Dermocosmetic Callout + Anvisa Disclaimer -->
+<div class="space-y-2">
+<!-- Main Headline with enhanced contrast -->
+<div class="space-y-1">
+<div class="inline-block px-2 py-0.5 rounded bg-primary-container text-white text-[11px] font-bold uppercase tracking-wide">
+                        Proteção Solar Avançada
+                      </div>
+<h2 class="text-white font-headline-md text-[18px] leading-tight font-extrabold drop-shadow-md">
+                        Rotina urbana protegida: foco em dermocosméticos.
+                      </h2>
+<p class="text-slate-100 text-[11px] font-medium leading-snug drop-shadow-sm">
+                        Toque seco, alta proteção UVA/UVB e fórmulas recomendadas por dermatologistas em até 3x sem juros.
+                      </p>
+</div>
+<!-- Commercial Offer Pill with Product Shot Thumbnail Accent -->
+<div class="p-2 rounded-lg bg-white/90 backdrop-blur-sm border border-white/60 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[20px]">sanitizer</span>
+<div>
+<div class="text-[10px] font-bold text-on-surface">Protetores Faciais FPS 50+</div>
+<div class="text-[9px] text-secondary font-bold">Descontos exclusivos Sempre Bem</div>
+</div>
+</div>
+<span class="px-2 py-1 rounded bg-secondary text-white text-[10px] font-extrabold uppercase">Confira</span>
+</div>
+<!-- Regulatory Disclaimer Anvisa (Highlighted Legibility in v2.1) -->
+<div class="pt-1 border-t border-white/20">
+<p class="text-white/90 text-[8px] font-medium leading-[11px] font-mono tracking-tight bg-black/40 p-1.5 rounded backdrop-blur-xs">
+<strong class="text-white font-bold">SE PERSISTIREM OS SINTOMAS, O MÉDICO DEVERÁ SER CONSULTADO.</strong> Registro ANVISA sob fiscalização RDC 96/2008. Imagens meramente ilustrativas. Consulte seu dermatologista.
+                      </p>
+</div>
+</div>
+</div>
+<!-- Interactive Split Slider Divider Line -->
+<div class="comparison-slider" style="left: 54%;">
+<div class="comparison-handle shadow-lg">
+<span class="material-symbols-outlined text-[14px]">swap_horiz</span>
+</div>
+</div>
+<!-- Labels Indicating Original vs Modificada -->
+<span class="absolute top-3 left-3 z-20 px-2 py-0.5 rounded bg-black/60 text-white text-[9px] font-mono uppercase tracking-wider backdrop-blur-xs">
+                  Original
+                </span>
+<span class="absolute top-3 right-3 z-20 px-2 py-0.5 rounded bg-primary-container text-white text-[9px] font-mono uppercase tracking-wider shadow-sm">
+                  v2.1 Atual (IA)
+                </span>
+</div>
+<!-- Instagram simulated engagement bar -->
+<div class="h-8 px-3 bg-white border-t border-slate-100 flex items-center justify-between flex-shrink-0 z-30">
+<div class="flex items-center gap-2 text-slate-600">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+<span class="material-symbols-outlined text-[18px]">mode_comment</span>
+<span class="material-symbols-outlined text-[18px]">send</span>
+</div>
+<span class="material-symbols-outlined text-slate-600 text-[18px]">bookmark</span>
+</div>
+</div>
+<!-- Floating Quick Annotation Stamp on Canvas -->
+<div class="absolute bottom-4 left-6 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-2 rounded-lg border border-outline-variant/30 shadow-md flex items-center gap-3">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<div class="text-xs">
+<span class="font-bold text-on-surface">Inspeção de Contraste WCAG:</span>
+<span class="text-emerald-700 font-semibold ml-1">Taxa 7.4:1 (Aprovado AAA)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ============================================================== -->
+<!-- COLUNA DIREITA (40%): Painel 'Ajustar com IA' Conversacional   -->
+<!-- ============================================================== -->
+<section class="w-[40%] flex flex-col bg-surface-container-lowest overflow-hidden">
+<!-- Header do Painel de IA -->
+<div class="p-4 border-b border-outline-variant/20 flex items-center justify-between bg-surface-container-lowest flex-shrink-0">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-primary-container/10 text-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-title-md font-bold text-on-surface leading-tight">Ajustar com IA</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Edição conversacional e refinamento em linguagem natural</p>
+</div>
+</div>
+<!-- Model Engine badge -->
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-secondary-fixed text-on-secondary-fixed text-code-sm font-code-sm font-semibold border border-secondary-fixed-dim">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+              IA Assistiva v3.4
+            </span>
+</div>
+<!-- Chat Scrollable Message Stream -->
+<div class="flex-1 overflow-y-auto p-4 space-y-4">
+<!-- System Welcome / Context Prompt -->
+<div class="text-center my-1">
+<span class="px-3 py-1 rounded-full bg-surface-container-low text-on-surface-variant text-body-sm font-body-sm border border-outline-variant/20">
+                Sessão iniciada com base na revisão da Campanha Verão 2025
+              </span>
+</div>
+<!-- 1. MENSAGEM DO USUÁRIO -->
+<div class="flex flex-col items-end space-y-1">
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant font-medium mr-1">
+<span>Felipe Santos (Direção de Arte)</span>
+<span>• 14:32</span>
+</div>
+<div class="max-w-[85%] bg-secondary text-white p-3.5 rounded-2xl rounded-tr-xs shadow-sm text-body-md font-body-md">
+                Ajuste o contraste do texto sobre a foto do produto e aumente a legibilidade do texto legal da Anvisa.
+              </div>
+</div>
+<!-- 2. RESPOSTA DA IA ASSISTIVA -->
+<div class="flex flex-col items-start space-y-1.5">
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant font-medium ml-1">
+<span class="w-4 h-4 rounded-full bg-primary-container text-white flex items-center justify-center text-[9px] font-bold">PM</span>
+<span class="font-semibold text-secondary">IA Assistiva Pague Menos</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container text-secondary text-[10px] font-code-sm font-bold">v3.4</span>
+<span>• 14:33</span>
+</div>
+<div class="max-w-[92%] bg-surface-container-low border border-outline-variant/30 p-4 rounded-2xl rounded-tl-xs shadow-xs space-y-2.5">
+<p class="text-on-surface text-body-md font-body-md leading-relaxed">
+                  Pronto! Apliquei um gradiente sutil de proteção de contraste na base da imagem, ajustei a tipografia do disclaimer legal conforme a RDC 96/2008 e preservei o logotipo oficial e as regras comerciais intactas.
+                </p>
+<!-- Modifications summary checklist -->
+<div class="bg-surface-container-lowest p-2.5 rounded-lg border border-outline-variant/20 space-y-1.5 text-xs">
+<div class="flex items-center gap-2 text-emerald-700 font-semibold">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Gradiente escurecedor linear (0% a 90% opacidade) na base</span>
+</div>
+<div class="flex items-center gap-2 text-emerald-700 font-semibold">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Caixa de fundo semitransparente no aviso regulatório</span>
+</div>
+<div class="flex items-center gap-2 text-secondary font-semibold">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span>Logotipo Pague Menos mantido em coordenadas institucionais</span>
+</div>
+</div>
+<!-- Actionable quick check -->
+<div class="flex items-center gap-2 pt-1">
+<button class="px-2.5 py-1 rounded bg-surface-container text-secondary font-semibold text-xs hover:bg-surface-container-high transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">tune</span>
+                    Refinar gradiente (+10%)
+                  </button>
+<button class="px-2.5 py-1 rounded bg-surface-container text-secondary font-semibold text-xs hover:bg-surface-container-high transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">zoom_in</span>
+                    Ver detalhe do texto legal
+                  </button>
+</div>
+</div>
+</div>
+<!-- Bloco de Governança e Regras de Segurança (Mandatório) -->
+<div class="p-3 rounded-xl bg-amber-50/70 border border-amber-200/80 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-amber-700 text-[20px] flex-shrink-0 mt-0.5">verified_user</span>
+<div class="space-y-0.5">
+<span class="text-xs font-bold text-amber-900 block">Campos Travados pela Governança:</span>
+<p class="text-xs text-amber-800 leading-snug">
+                  Logotipo Pague Menos, Preços, Descontos e Avisos Regulatórios da Anvisa não podem ser alterados diretamente por IA sem homologação humana prévia.
+                </p>
+</div>
+</div>
+<!-- Histórico de Versões da Peça (Mandatório) -->
+<div class="border border-outline-variant/30 rounded-xl p-3 bg-surface-container-lowest space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">history</span>
+                  Histórico de Versões da Peça
+                </span>
+<span class="text-[11px] font-code-sm text-on-surface-variant font-medium">3 iterações</span>
+</div>
+<div class="space-y-1.5">
+<!-- v1.0 -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low/60 hover:bg-surface-container-low transition-colors text-xs">
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-code-sm font-semibold">v1.0</span>
+<span class="text-on-surface-variant">Geração inicial automática</span>
+</div>
+<button class="text-secondary font-semibold hover:underline text-[11px]">Restaurar</button>
+</div>
+<!-- v2.0 -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low/60 hover:bg-surface-container-low transition-colors text-xs">
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-code-sm font-semibold">v2.0</span>
+<span class="text-on-surface-variant">Ajuste solicitado na revisão jurídica</span>
+</div>
+<button class="text-secondary font-semibold hover:underline text-[11px]">Restaurar</button>
+</div>
+<!-- v2.1 Atual -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-secondary-fixed/30 border border-secondary/30 text-xs font-semibold">
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.5 rounded bg-secondary text-white font-code-sm">v2.1</span>
+<span class="text-secondary">Atual com contraste e disclaimer corrigidos</span>
+</div>
+<span class="text-[10px] uppercase font-bold text-secondary bg-white px-2 py-0.5 rounded shadow-xs">Em Edição</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Suggestion Chips Container -->
+<div class="p-3 border-t border-outline-variant/20 bg-surface-container-low/40 space-y-1.5">
+<span class="text-[11px] font-semibold text-on-surface-variant block">Sugestões rápidas de comandos:</span>
+<div class="flex flex-wrap gap-1.5">
+<button class="px-2.5 py-1 rounded-full bg-surface-container-lowest border border-outline-variant/40 text-xs text-on-surface hover:border-secondary hover:text-secondary hover:bg-surface-container-low transition-all">
+                Deixe o texto mais acolhedor
+              </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container-lowest border border-outline-variant/40 text-xs text-on-surface hover:border-secondary hover:text-secondary hover:bg-surface-container-low transition-all">
+                Reduza a legenda para versão curta
+              </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container-lowest border border-outline-variant/40 text-xs text-on-surface hover:border-secondary hover:text-secondary hover:bg-surface-container-low transition-all">
+                Adapte esta comunicação para WhatsApp
+              </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container-lowest border border-outline-variant/40 text-xs text-on-surface hover:border-secondary hover:text-secondary hover:bg-surface-container-low transition-all">
+                Destacar o benefício principal
+              </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container-lowest border border-outline-variant/40 text-xs text-on-surface hover:border-secondary hover:text-secondary hover:bg-surface-container-low transition-all">
+                Gerar variação com proteção FPS 50+
+              </button>
+</div>
+</div>
+<!-- AI Message Input Console -->
+<div class="p-3 bg-surface-container-lowest border-t border-outline-variant/30">
+<div class="relative rounded-xl border border-outline-variant/40 bg-surface-bright focus-within:border-secondary focus-within:ring-2 focus-within:ring-secondary/10 transition-all p-2">
+<textarea class="w-full bg-transparent border-0 resize-none text-body-md font-body-md text-on-surface placeholder:text-on-surface-variant/60 focus:ring-0 p-1 outline-none" placeholder="Peça alterações em linguagem natural (ex: 'Deixe o título com tom mais alegre' ou 'Aumente o destaque do desconto Sempre Bem')..." rows="2"></textarea>
+<div class="flex items-center justify-between pt-1 border-t border-outline-variant/20 mt-1">
+<div class="flex items-center gap-1">
+<!-- Voice input button -->
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="Gravar comando por voz">
+<span class="material-symbols-outlined text-[18px]">mic</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="Anexar referência visual">
+<span class="material-symbols-outlined text-[18px]">attach_file</span>
+</button>
+<span class="text-[11px] text-on-surface-variant/80 pl-1">Pressione Enter ↵ para enviar</span>
+</div>
+<!-- Submit Button -->
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary-container text-white text-body-sm font-bold hover:bg-primary transition-all duration-150 active:scale-95 shadow-sm">
+<span>Aplicar Ajustes</span>
+<span class="material-symbols-outlined text-[16px]">send</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- ============================================================== -->
+<!-- 3. WORKSPACE FOOTER ACTION BAR                                -->
+<!-- ============================================================== -->
+<footer class="h-16 px-6 bg-surface-container-lowest border-t border-outline-variant/30 flex items-center justify-between flex-shrink-0 z-20">
+<!-- Left: Status Metadata -->
+<div class="flex items-center gap-4 text-xs">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="text-on-surface-variant font-medium">Modificações sincronizadas na nuvem</span>
+</div>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant font-code-sm">Último salvamento automático às 14:34</span>
+</div>
+<!-- Right: Primary and Secondary Action Cluster -->
+<div class="flex items-center gap-3">
+<!-- Botão Secundário: Visualizar Original -->
+<button class="px-4 py-2 rounded-lg border border-outline-variant/40 bg-white text-secondary font-semibold text-body-sm font-body-sm hover:bg-surface-container transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+            Visualizar Original
+          </button>
+<!-- Botão Secundário: Salvar Versão -->
+<button class="px-4 py-2 rounded-lg border border-secondary text-secondary font-semibold text-body-sm font-body-sm hover:bg-secondary-fixed/40 transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">save</span>
+            Salvar Versão
+          </button>
+<!-- Botão Primário Vermelho de Destaque -->
+<button class="px-5 py-2.5 rounded-lg bg-primary-container text-white font-title-md text-body-sm font-bold hover:bg-primary hover:shadow-lg hover:shadow-primary-container/20 transition-all duration-150 active:scale-95 flex items-center gap-2">
+<span>Enviar para Revisão e Aprovação (Passo 4)</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</footer>
+</main>
+</div>
+</body></html>
