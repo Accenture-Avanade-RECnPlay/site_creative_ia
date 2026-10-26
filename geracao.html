@@ -1,0 +1,790 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Creative AI Pague Menos - Adaptações Multicanal</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface-variant": "#5e3f3b",
+            "on-background": "#131b2e",
+            "surface-container": "#eaedff",
+            "on-tertiary-fixed-variant": "#004b73",
+            "on-surface": "#131b2e",
+            "error-container": "#ffdad6",
+            "on-secondary-fixed-variant": "#00458f",
+            "outline": "#936e69",
+            "on-tertiary-fixed": "#001d31",
+            "on-secondary-container": "#004085",
+            "on-primary-container": "#fff5f3",
+            "tertiary-fixed": "#cce5ff",
+            "inverse-surface": "#283044",
+            "surface-dim": "#d2d9f4",
+            "tertiary": "#005d8f",
+            "surface": "#faf8ff",
+            "inverse-primary": "#ffb4aa",
+            "error": "#ba1a1a",
+            "tertiary-fixed-dim": "#93ccff",
+            "primary": "#b5000b",
+            "secondary": "#2a5da9",
+            "primary-container": "#e30613",
+            "surface-variant": "#dae2fd",
+            "on-secondary-fixed": "#001b3f",
+            "on-primary-fixed": "#410001",
+            "inverse-on-surface": "#eef0ff",
+            "surface-tint": "#c0000c",
+            "surface-container-highest": "#dae2fd",
+            "surface-bright": "#faf8ff",
+            "tertiary-container": "#0077b4",
+            "primary-fixed-dim": "#ffb4aa",
+            "on-tertiary-container": "#f2f7ff",
+            "on-secondary": "#ffffff",
+            "surface-container-high": "#e2e7ff",
+            "background": "#faf8ff",
+            "on-error": "#ffffff",
+            "on-primary-fixed-variant": "#930007",
+            "on-tertiary": "#ffffff",
+            "on-primary": "#ffffff",
+            "outline-variant": "#e9bcb6",
+            "secondary-fixed": "#d7e3ff",
+            "surface-container-low": "#f2f3ff",
+            "on-error-container": "#93000a",
+            "primary-fixed": "#ffdad5",
+            "surface-container-lowest": "#ffffff",
+            "secondary-container": "#81aeff",
+            "secondary-fixed-dim": "#abc7ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "margin-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem",
+            "gutter-mobile": "0.75rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "title-md": ["Hanken Grotesk"],
+            "display-lg": ["Hanken Grotesk"],
+            "headline-lg-mobile": ["Hanken Grotesk"],
+            "body-lg": ["Hanken Grotesk"],
+            "headline-lg": ["Hanken Grotesk"],
+            "headline-sm": ["Hanken Grotesk"],
+            "body-sm": ["Hanken Grotesk"],
+            "headline-md": ["Hanken Grotesk"],
+            "label-md": ["Hanken Grotesk"],
+            "body-md": ["Hanken Grotesk"],
+            "code-sm": ["JetBrains Mono"]
+          },
+          "fontSize": {
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-md": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "code-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAF8FF;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94A3B8;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex selection:bg-primary selection:text-on-primary">
+<!-- ======================================================== -->
+<!-- 1. FIXED LEFT SIDEBAR (Shared Component: SideNavBar)      -->
+<!-- ======================================================== -->
+<aside class="fixed top-0 left-0 h-screen w-72 z-40 bg-surface-container-lowest border-r border-outline-variant/30 flex flex-col justify-between p-4">
+<div class="flex flex-col gap-4">
+<!-- Header / Logo -->
+<div class="flex items-center gap-3 px-2 py-1">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined" data-icon="local_pharmacy" style="font-variation-settings: 'FILL' 1;">local_pharmacy</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="font-headline-md text-headline-sm font-bold text-secondary leading-tight tracking-tight">Pague Menos</span>
+<span class="font-label-md text-body-sm text-outline font-semibold tracking-wider uppercase">Marketing Studio</span>
+</div>
+</div>
+<!-- Action Button CTA -->
+<button class="w-full py-2.5 px-4 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-title-md text-title-md flex items-center justify-center gap-2 transition-all duration-150 shadow-sm active:scale-95 group">
+<span class="material-symbols-outlined text-title-md transition-transform group-hover:rotate-90" data-icon="add">add</span>
+<span>Nova Campanha</span>
+</button>
+<!-- Nav Items -->
+<nav class="flex flex-col gap-1 mt-2 overflow-y-auto max-h-[calc(100vh-320px)] pr-1">
+<!-- Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<!-- Briefing Inteligente -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="psychology">psychology</span>
+<span class="font-label-md text-label-md">Briefing Inteligente</span>
+</a>
+<!-- Conceitos Criativos -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="lightbulb">lightbulb</span>
+<span class="font-label-md text-label-md">Conceitos Criativos</span>
+</a>
+<!-- Adaptações Multicanal (ACTIVE ITEM) -->
+<a class="flex items-center justify-between px-3 py-2.5 rounded-lg bg-surface-container text-primary font-bold shadow-sm transition-colors duration-150" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-lg text-primary" data-icon="dynamic_feed" style="font-variation-settings: 'FILL' 1;">dynamic_feed</span>
+<span class="font-label-md text-label-md text-primary">Adaptações Multicanal</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+</a>
+<!-- Editor com IA -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="auto_fix_high">auto_fix_high</span>
+<span class="font-label-md text-label-md">Editor com IA</span>
+</a>
+<!-- Revisão & Aprovação -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="verified">verified</span>
+<span class="font-label-md text-label-md">Revisão &amp; Aprovação</span>
+</a>
+<!-- Biblioteca de Referências -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="auto_stories">auto_stories</span>
+<span class="font-label-md text-label-md">Biblioteca de Referências</span>
+</a>
+<!-- Histórico & Produtividade -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="history_toggle_off">history_toggle_off</span>
+<span class="font-label-md text-label-md">Histórico &amp; Produtividade</span>
+</a>
+</nav>
+</div>
+<!-- Footer: Settings, Help & Profile Card -->
+<div class="flex flex-col gap-2 pt-3 border-t border-outline-variant/30">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Configurações</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="help_center">help_center</span>
+<span class="font-label-md text-label-md">Ajuda &amp; Suporte</span>
+</a>
+<!-- User Card -->
+<div class="mt-2 p-2.5 rounded-xl bg-surface-container-low border border-outline-variant/20 flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-secondary text-on-secondary font-title-md text-sm font-bold flex items-center justify-center flex-shrink-0 shadow-sm">
+          TM
+        </div>
+<div class="flex flex-col overflow-hidden">
+<span class="font-title-md text-body-md font-semibold truncate leading-snug">Equipe Trade Marketing</span>
+<span class="font-body-sm text-body-sm text-outline truncate leading-tight">trade.mkt@paguemenos.com.br</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- ======================================================== -->
+<!-- MAIN WORKSPACE CONTAINER (Offset by 72 = 288px)          -->
+<!-- ======================================================== -->
+<div class="ml-72 flex-1 flex flex-col min-h-screen">
+<!-- 2. TOP NAVBAR (Shared Component: TopNavBar) -->
+<header class="docked full-width top sticky top-0 z-30 flex items-center justify-between w-full h-16 px-8 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/30">
+<!-- Search Input -->
+<div class="flex items-center gap-4 flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-xl pointer-events-none" data-icon="search">search</span>
+<input class="w-full pl-11 pr-4 py-2 bg-surface-container-low hover:bg-surface-container-lowest focus:bg-surface-container-lowest text-on-surface placeholder:text-outline font-body-md text-body-md rounded-lg border border-outline-variant/30 focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all outline-none" placeholder="Buscar peças, canais, formatos ou regiões..." type="text">
+</div>
+</div>
+<!-- Trailing Status & Actions -->
+<div class="flex items-center gap-4">
+<!-- AI Status Pill -->
+<div class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-code-sm text-code-sm text-emerald-800 font-medium">IA Ativa v3.4 · Modo Assistido</span>
+</div>
+<!-- Trailing Icon Buttons -->
+<div class="flex items-center gap-1">
+<button class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" title="Notificações">
+<span class="material-symbols-outlined text-xl" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary ring-2 ring-surface-container-lowest"></span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" title="Ajuda">
+<span class="material-symbols-outlined text-xl" data-icon="help">help</span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" title="Conta">
+<span class="material-symbols-outlined text-xl" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+<div class="h-6 w-px bg-outline-variant/30 mx-1"></div>
+<!-- Primary Action -->
+<button class="py-2 px-4 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-title-md text-body-md flex items-center gap-2 transition-all active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-base" data-icon="add">add</span>
+<span>Nova Campanha</span>
+</button>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CANVAS -->
+<main class="flex-1 p-8 pb-32 flex flex-col gap-6 max-w-7xl mx-auto w-full">
+<!-- ======================================================== -->
+<!-- 3. WORKFLOW PROGRESS & ACTIVE CAMPAIGN HEADER            -->
+<!-- ======================================================== -->
+<section class="flex flex-col gap-4">
+<!-- Breadcrumbs & Time Saved Metric -->
+<div class="flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded-md bg-secondary-fixed text-on-secondary-fixed-variant font-code-sm text-code-sm font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="auto_awesome">auto_awesome</span>
+              Passo 3 de 4 · Desdobramento Criativo e Multicanal
+            </span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/30 text-on-surface-variant font-code-sm text-code-sm">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="schedule">schedule</span>
+<span>Tempo estimado economizado: <strong>14h</strong></span>
+</div>
+</div>
+<!-- Title & Subtitle -->
+<div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">
+            Suas peças estão tomando forma
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-4xl mt-1.5">
+            A IA adaptou automaticamente o conceito escolhido <span class="font-semibold text-secondary">"Verão sem Complicação"</span> para os formatos e linguagens prioritários dos canais e praças de atuação da rede Pague Menos.
+          </p>
+</div>
+<!-- Campaign Summary & Quick Batch Actions Bar -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="flex flex-wrap items-center gap-3">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 font-title-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-sm text-emerald-600" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              Conceito Ativo: Verão sem Complicação
+            </span>
+<div class="h-4 w-px bg-outline-variant/40 hidden sm:block"></div>
+<span class="px-2.5 py-1 rounded-md bg-surface-container text-on-surface-variant font-code-sm text-code-sm">1 campanha</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container text-on-surface-variant font-code-sm text-code-sm">2 regiões (PE e SP)</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container text-on-surface-variant font-code-sm text-code-sm">2 canais (Instagram e WhatsApp)</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container text-on-surface-variant font-code-sm text-code-sm font-semibold text-secondary">4 adaptações geradas</span>
+</div>
+<div class="flex items-center gap-3 flex-shrink-0">
+<button class="py-2 px-3.5 rounded-lg border border-outline-variant/50 hover:bg-surface-container text-on-surface font-title-md text-label-md flex items-center gap-1.5 transition-all active:scale-95">
+<span class="material-symbols-outlined text-base" data-icon="refresh">refresh</span>
+<span>Regenerar Selecionadas</span>
+</button>
+<button class="py-2 px-4 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-title-md text-label-md font-bold flex items-center gap-2 shadow-sm transition-all active:scale-95">
+<span>Enviar Todas para Revisão</span>
+<span class="material-symbols-outlined text-base" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- ======================================================== -->
+<!-- 4. MAIN CONTENT - 4 MULTICHANNEL ADAPTATION CARDS        -->
+<!-- ======================================================== -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+<!-- ---------------------------------------------------- -->
+<!-- CARD 1: Instagram (4:5) — Pernambuco (Nordeste)      -->
+<!-- ---------------------------------------------------- -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-sm flex flex-col justify-between overflow-hidden hover:border-slate-300 transition-all duration-200">
+<div>
+<!-- Card Header Meta -->
+<div class="p-3.5 border-b border-outline-variant/20 bg-surface-container-low flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<div class="w-5 h-5 rounded bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 flex items-center justify-center text-white text-xs">
+<span class="material-symbols-outlined text-xs leading-none" data-icon="photo_camera">photo_camera</span>
+</div>
+<span class="font-title-md text-label-md font-bold text-on-surface">Instagram (4:5)</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 font-code-sm text-body-sm font-semibold">
+                  Pernambuco (NE)
+                </span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="inline-flex items-center gap-1 text-emerald-700 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  Gerada com IA · Validada
+                </span>
+<span class="text-outline font-code-sm text-body-sm">Feed &amp; Stories</span>
+</div>
+</div>
+<!-- Visual Preview: Instagram Post Shell -->
+<div class="p-3 bg-surface-container-low/40">
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant/20 shadow-xs overflow-hidden">
+<!-- Post Header -->
+<div class="p-2.5 flex items-center justify-between border-b border-outline-variant/10">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-on-primary text-[10px] font-bold">
+                      PM
+                    </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-title-md text-body-sm font-bold text-on-surface">@paguemenos</span>
+<span class="material-symbols-outlined text-[13px] text-secondary" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<span class="text-[10px] text-outline leading-none">Patrocinado</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-sm" data-icon="more_horiz">more_horiz</span>
+</div>
+<!-- Asset Creative Banner -->
+<div class="relative aspect-[4/5] w-full overflow-hidden bg-slate-100 flex flex-col justify-end">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A vivid sun-drenched coastal beach lifestyle photography in northeastern Brazil with turquoise ocean and white sand in soft warm lighting. In the foreground rests a clean modern sunscreen bottle with FPS 50 in crisp clinical pharmacy packaging. Clean modern composition, bright light mode aesthetic, pristine slate tones punctuated by intense red brand accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq401SNr4mUoqS2C3PkBdNS_EOoX2YAAfwq00Xw8Vn4dc77VY_uB2CdjTh4MN62LDtdMwUbErhv27uKYGIOvqCvw0wvsVXbsNrDps2tNXomLomqcy3r9OfrorWwBcof34_fCi_Q-1WMT4KW3gCWG7OuLaPRRTFVV5HzYnJtgyH14LAKey5wsUWgSxs3uQ3NRJ_jS7H9jiTz1lUVTWXa7BuidCls6TKRKLkhEVDS_lmJzlk5eZKwHmb9w">
+<!-- Gradient Scrim for Legibility -->
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-900/30 to-transparent"></div>
+<!-- Overlay Content -->
+<div class="relative p-3.5 text-on-primary flex flex-col gap-1.5">
+<span class="inline-block px-2 py-0.5 rounded bg-primary text-[10px] font-bold uppercase tracking-wider w-max">
+                      Verão sem Complicação
+                    </span>
+<p class="font-headline-sm text-body-md font-bold leading-snug drop-shadow-sm">
+                      Sol e praia no litoral com proteção garantida para toda a família.
+                    </p>
+<div class="mt-1 flex items-center justify-between pt-1 border-t border-white/20">
+<span class="text-[11px] font-semibold text-primary-fixed">Protetor Solar FPS 50 200ml</span>
+<span class="text-[10px] bg-white/20 backdrop-blur-xs px-2 py-0.5 rounded">Rápida Absorção</span>
+</div>
+</div>
+</div>
+<!-- Post CTA Button -->
+<div class="p-2 bg-surface-container border-t border-outline-variant/20 flex items-center justify-between">
+<span class="font-title-md text-body-sm font-semibold text-secondary">Comprar no App Pague Menos</span>
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Post Caption -->
+<div class="p-2.5 text-body-sm text-on-surface-variant flex flex-col gap-1 border-t border-outline-variant/10">
+<p class="line-clamp-3 text-body-sm leading-relaxed">
+<strong class="text-on-surface">paguemenos</strong> O verão no Nordeste pede cuidado redobrado com a pele! Garanta seu protetor solar FPS 50 na Pague Menos mais próxima ou peça pelo app com entrega rápida. Viva seu verão sem complicação! ☀️🏖️ #VeraoPagueMenos #ProtecaoSolar #FarmaciasPagueMenos
+                  </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Card Footer & Actions -->
+<div class="p-3 border-t border-outline-variant/20 bg-surface-container-lowest flex flex-col gap-2.5">
+<div class="flex items-center justify-between text-body-sm font-code-sm">
+<span class="text-emerald-700 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
+                Visual: 100%
+              </span>
+<span class="text-outline">Regras Anvisa: OK</span>
+</div>
+<div class="grid grid-cols-3 gap-1.5 pt-1">
+<button class="py-1.5 px-1 rounded-md border border-outline-variant/30 hover:bg-surface-container text-on-surface font-title-md text-[11px] flex items-center justify-center gap-1 transition-colors" title="Editar no Studio">
+<span class="material-symbols-outlined text-xs" data-icon="edit">edit</span>
+<span>Editar</span>
+</button>
+<button class="py-1.5 px-1 rounded-md border border-outline-variant/30 hover:bg-surface-container text-secondary font-title-md text-[11px] flex items-center justify-center gap-1 transition-colors" title="Ajustar com IA">
+<span class="material-symbols-outlined text-xs" data-icon="auto_fix_high">auto_fix_high</span>
+<span>Ajustar</span>
+</button>
+<button class="py-1.5 px-1 rounded-md bg-surface-container hover:bg-surface-container-high text-on-surface font-title-md text-[11px] flex items-center justify-center gap-1 transition-colors" title="Visualizar">
+<span class="material-symbols-outlined text-xs" data-icon="visibility">visibility</span>
+<span>Ver</span>
+</button>
+</div>
+</div>
+</article>
+<!-- ---------------------------------------------------- -->
+<!-- CARD 2: WhatsApp — Pernambuco (Nordeste)             -->
+<!-- ---------------------------------------------------- -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-sm flex flex-col justify-between overflow-hidden hover:border-slate-300 transition-all duration-200">
+<div>
+<!-- Card Header Meta -->
+<div class="p-3.5 border-b border-outline-variant/20 bg-surface-container-low flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<div class="w-5 h-5 rounded bg-emerald-600 flex items-center justify-center text-white text-xs">
+<span class="material-symbols-outlined text-xs leading-none" data-icon="chat">chat</span>
+</div>
+<span class="font-title-md text-label-md font-bold text-on-surface">WhatsApp Catálogo</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 font-code-sm text-body-sm font-semibold">
+                  Pernambuco (NE)
+                </span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="inline-flex items-center gap-1 text-emerald-700 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  Pronta para Disparo
+                </span>
+<span class="text-outline font-code-sm text-body-sm">Broadcast CRM</span>
+</div>
+</div>
+<!-- Visual Preview: WhatsApp Chat Bubble Simulation -->
+<div class="p-3 bg-[#E5DDD5]/50 flex flex-col gap-2">
+<!-- Contact Bar -->
+<div class="bg-emerald-800 text-white p-2 rounded-t-lg flex items-center justify-between shadow-xs">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-white text-emerald-900 font-bold text-[10px] flex items-center justify-center">
+                    PM
+                  </div>
+<div class="flex flex-col">
+<span class="font-title-md text-body-sm font-bold text-white flex items-center gap-1 leading-tight">
+                      Pague Menos PE
+                      <span class="material-symbols-outlined text-xs text-emerald-300" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</span>
+<span class="text-[9px] text-emerald-200">Conta Comercial Oficial</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-emerald-200 text-sm" data-icon="lock">lock</span>
+</div>
+<!-- Message Bubble -->
+<div class="bg-white rounded-b-lg rounded-tr-lg p-3 shadow-xs border border-slate-200 flex flex-col gap-2 text-on-surface text-body-sm">
+<!-- Mini Header Banner -->
+<div class="p-2 rounded bg-amber-50 border-l-4 border-amber-500 font-title-md text-body-sm text-amber-950 font-bold flex items-center gap-1">
+<span>☀️ Alerta de Verão Pague Menos Nordeste!</span>
+</div>
+<p class="leading-relaxed text-on-surface-variant">
+                  Olá! Aproveite os dias de muito sol com a máxima proteção para quem você ama. Na Pague Menos de Pernambuco, o Protetor Solar FPS 50 e Pós-Sol estão prontos para retirada rápida ou entrega direta na sua casa.
+                </p>
+<div class="p-2 rounded bg-surface-container-low border border-outline-variant/20 flex flex-col gap-1 text-[11px] font-medium text-on-surface">
+<div class="flex items-center gap-1.5 text-emerald-800">
+<span class="material-symbols-outlined text-xs text-emerald-600" data-icon="check_circle">check_circle</span>
+<span>Proteção UVA/UVB avançada</span>
+</div>
+<div class="flex items-center gap-1.5 text-emerald-800">
+<span class="material-symbols-outlined text-xs text-emerald-600" data-icon="check_circle">check_circle</span>
+<span>Hidratação pós-praia refrescante</span>
+</div>
+<div class="flex items-center gap-1.5 text-emerald-800">
+<span class="material-symbols-outlined text-xs text-emerald-600" data-icon="check_circle">check_circle</span>
+<span>Peça direto aqui pelo Zap</span>
+</div>
+</div>
+<!-- Link Preview -->
+<div class="p-2 rounded border border-slate-200 bg-slate-50 text-[11px] flex items-center justify-between text-outline">
+<span>Confira as farmácias abertas no Recife e RM</span>
+<span class="material-symbols-outlined text-xs" data-icon="open_in_new">open_in_new</span>
+</div>
+<div class="text-[9px] text-right text-slate-400 font-code-sm">10:42 · Enviada com opt-in</div>
+<!-- Interactive CTA Buttons -->
+<div class="flex flex-col gap-1.5 pt-1 border-t border-slate-100">
+<button class="w-full py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-title-md text-[11px] rounded border border-emerald-200 flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="shopping_cart">shopping_cart</span>
+                    Pedir pelo WhatsApp
+                  </button>
+<button class="w-full py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-700 font-title-md text-[11px] rounded border border-slate-200 flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="menu_book">menu_book</span>
+                    Ver Catálogo de Verão
+                  </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card Footer & Actions -->
+<div class="p-3 border-t border-outline-variant/20 bg-surface-container-lowest flex flex-col gap-2.5">
+<div class="flex items-center justify-between text-body-sm font-code-sm">
+<span class="text-emerald-700 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
+                Opt-in Regulamentado
+              </span>
+<span class="text-outline">Tom Acolhedor</span>
+</div>
+<div class="grid grid-cols-3 gap-1.5 pt-1">
+<button class="py-1.5 px-1 rounded-md border border-outline-variant/30 hover:bg-surface-container text-on-surface font-title-md text-[11px] flex items-center justify-center gap-1 transition-colors" title="Editar no Studio">
+<span class="material-symbols-outlined text-xs" data-icon="edit">edit</span>
+<span>Editar</span>
+</button>
+<button class="py-1.5 px-1 rounded-md border border-outline-variant/30 hover:bg-surface-container text-secondary font-title-md text-[11px] flex items-center justify-center gap-1 transition-colors" title="Ajustar com IA">
+<span class="material-symbols-outlined text-xs" data-icon="auto_fix_high">auto_fix_high</span>
+<span>Ajustar</span>
+</button>
+<button class="py-1.5 px-1 rounded-md bg-surface-container hover:bg-surface-container-high text-on-surface font-title-md text-[11px] flex items-center justify-center gap-1 transition-colors" title="Visualizar">
+<span class="material-symbols-outlined text-xs" data-icon="visibility">visibility</span>
+<span>Ver</span>
+</button>
+</div>
+</div>
+</article>
+<!-- ---------------------------------------------------- -->
+<!-- CARD 3: Instagram (4:5) — São Paulo (Sudeste)        -->
+<!-- ---------------------------------------------------- -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-sm flex flex-col justify-between overflow-hidden hover:border-slate-300 transition-all duration-200">
+<div>
+<!-- Card Header Meta -->
+<div class="p-3.5 border-b border-outline-variant/20 bg-surface-container-low flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<div class="w-5 h-5 rounded bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 flex items-center justify-center text-white text-xs">
+<span class="material-symbols-outlined text-xs leading-none" data-icon="photo_camera">photo_camera</span>
+</div>
+<span class="font-title-md text-label-md font-bold text-on-surface">Instagram (4:5)</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-secondary font-code-sm text-body-sm font-semibold">
+                  São Paulo (SE)
+                </span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="inline-flex items-center gap-1 text-emerald-700 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  Gerada com IA · Validada
+                </span>
+<span class="text-outline font-code-sm text-body-sm">Feed &amp; Stories</span>
+</div>
+</div>
+<!-- Visual Preview: Instagram Post Shell -->
+<div class="p-3 bg-surface-container-low/40">
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant/20 shadow-xs overflow-hidden">
+<!-- Post Header -->
+<div class="p-2.5 flex items-center justify-between border-b border-outline-variant/10">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-on-primary text-[10px] font-bold">
+                      PM
+                    </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-title-md text-body-sm font-bold text-on-surface">@paguemenos</span>
+<span class="material-symbols-outlined text-[13px] text-secondary" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<span class="text-[10px] text-outline leading-none">Patrocinado</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-sm" data-icon="more_horiz">more_horiz</span>
+</div>
+<!-- Asset Creative Banner -->
+<div class="relative aspect-[4/5] w-full overflow-hidden bg-slate-100 flex flex-col justify-end">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="An energetic urban lifestyle photograph taken during daylight in an outdoor metropolitan park in São Paulo. Active professional and family under soft natural city sun exposure applying dermatological skincare products. The composition features cool slate tones, architectural glass, and clean clinical product bottles highlighted by subtle crimson brand accents in a bright light-mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQK9TZMfyKUFvSvKB-TRsZP5HdfeO-1Bzi_2jbG4rRXW8mG3yhGIjnOFs4WpkrALXit0CT6PBMS3CdyVnZkoaXtBLVYD7QKzm8m-drddqfof7xYWZ-M-amD3wg9TG8GO32Oy1CsfQNYcOt-L9Ij2Ato_z7kEjzF6y8Np9mDPIR994r__fWmZxLftMbeeJ1Sib8sPwSLmVrUsrorQc9T2jtp1Mz0Rme32lJeQIP9Lv5ohWuxn_gtPk3Ug">
+<!-- Gradient Scrim for Legibility -->
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-900/30 to-transparent"></div>
+<!-- Overlay Content -->
+<div class="relative p-3.5 text-on-primary flex flex-col gap-1.5">
+<span class="inline-block px-2 py-0.5 rounded bg-secondary text-[10px] font-bold uppercase tracking-wider w-max">
+                      Rotina Urbana Protegida
+                    </span>
+<p class="font-headline-sm text-body-md font-bold leading-snug drop-shadow-sm">
+                      Rotina ativa sob o sol da cidade: proteção dermatológica completa.
+                    </p>
+<div class="mt-1 flex items-center justify-between pt-1 border-t border-white/20">
+<span class="text-[11px] font-semibold text-primary-fixed">FPS 50 + Hidratante Pós-sol</span>
+<span class="text-[10px] bg-white/20 backdrop-blur-xs px-2 py-0.5 rounded">Toque Seco Anti-poluição</span>
+</div>
+</div>
+</div>
+<!-- Post CTA Button -->
+<div class="p-2 bg-surface-container border-t border-outline-variant/20 flex items-center justify-between">
+<span class="font-title-md text-body-sm font-semibold text-secondary">Ver Ofertas Exclusivas</span>
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Post Caption -->
+<div class="p-2.5 text-body-sm text-on-surface-variant flex flex-col gap-1 border-t border-outline-variant/10">
+<p class="line-clamp-3 text-body-sm leading-relaxed">
+<strong class="text-on-surface">paguemenos</strong> Mesmo nos dias nublados ou na correria da cidade de SP, a radiação UV não dá trégua. Cuide do seu bem-estar com a linha solar completa nas farmácias Pague Menos e garanta seu cuidado sem complicação. 🏙️🧴 #CuidadoDiario #PagueMenosSP #ProtecaoSolar
+                  </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Card Footer & Actions -->
+<div class="p-3 border-t border-outline-variant/20 bg-surface-container-lowest flex flex-col gap-2.5">
+<div class="flex items-center justify-between text-body-sm font-code-sm">
+<span class="text-emerald-700 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
+                Visual: 100%
+              </span>
+<span class="text-outline">Regras Anvisa: OK</span>
+</div>
+<div class="grid grid-cols-3 gap-1.5 pt-1">
+<button class="py-1.5 px-1 rounded-md border border-outline-variant/30 hover:bg-surface-container text-on-surface font-title-md text-[11px] flex items-center justify-center gap-1 transition-colors" title="Editar no Studio">
+<span class="material-symbols-outlined text-xs" data-icon="edit">edit</span>
+<span>Editar</span>
+</button>
+<button class="py-1.5 px-1 rounded-md border border-outline-variant/30 hover:bg-surface-container text-secondary font-title-md text-[11px] flex items-center justify-center gap-1 transition-colors" title="Ajustar com IA">
+<span class="material-symbols-outlined text-xs" data-icon="auto_fix_high">auto_fix_high</span>
+<span>Ajustar</span>
+</button>
+<button class="py-1.5 px-1 rounded-md bg-surface-container hover:bg-surface-container-high text-on-surface font-title-md text-[11px] flex items-center justify-center gap-1 transition-colors" title="Visualizar">
+<span class="material-symbols-outlined text-xs" data-icon="visibility">visibility</span>
+<span>Ver</span>
+</button>
+</div>
+</div>
+</article>
+<!-- ---------------------------------------------------- -->
+<!-- CARD 4: WhatsApp — São Paulo (Sudeste)               -->
+<!-- ---------------------------------------------------- -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-sm flex flex-col justify-between overflow-hidden hover:border-slate-300 transition-all duration-200">
+<div>
+<!-- Card Header Meta -->
+<div class="p-3.5 border-b border-outline-variant/20 bg-surface-container-low flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<div class="w-5 h-5 rounded bg-emerald-600 flex items-center justify-center text-white text-xs">
+<span class="material-symbols-outlined text-xs leading-none" data-icon="chat">chat</span>
+</div>
+<span class="font-title-md text-label-md font-bold text-on-surface">WhatsApp Catálogo</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-secondary font-code-sm text-body-sm font-semibold">
+                  São Paulo (SE)
+                </span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="inline-flex items-center gap-1 text-emerald-700 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  Pronta para Disparo
+                </span>
+<span class="text-outline font-code-sm text-body-sm">Broadcast CRM</span>
+</div>
+</div>
+<!-- Visual Preview: WhatsApp Chat Bubble Simulation -->
+<div class="p-3 bg-[#E5DDD5]/50 flex flex-col gap-2">
+<!-- Contact Bar -->
+<div class="bg-emerald-800 text-white p-2 rounded-t-lg flex items-center justify-between shadow-xs">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-white text-emerald-900 font-bold text-[10px] flex items-center justify-center">
+                    PM
+                  </div>
+<div class="flex flex-col">
+<span class="font-title-md text-body-sm font-bold text-white flex items-center gap-1 leading-tight">
+                      Pague Menos SP
+                      <span class="material-symbols-outlined text-xs text-emerald-300" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</span>
+<span class="text-[9px] text-emerald-200">Conta Comercial Oficial</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-emerald-200 text-sm" data-icon="lock">lock</span>
+</div>
+<!-- Message Bubble -->
+<div class="bg-white rounded-b-lg rounded-tr-lg p-3 shadow-xs border border-slate-200 flex flex-col gap-2 text-on-surface text-body-sm">
+<!-- Mini Header Banner -->
+<div class="p-2 rounded bg-blue-50 border-l-4 border-secondary font-title-md text-body-sm text-secondary font-bold flex items-center gap-1">
+<span>🧴 Cuidados Diários de Verão | Pague Menos</span>
+</div>
+<p class="leading-relaxed text-on-surface-variant">
+                  Olá! A sua saúde dermatológica não tira férias. Para quem tem a rotina corrida em São Paulo, separamos o combo essencial de fotoproteção e hidratação com entrega expressa.
+                </p>
+<div class="p-2 rounded bg-surface-container-low border border-outline-variant/20 flex flex-col gap-1 text-[11px] font-medium text-on-surface">
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-xs text-secondary" data-icon="local_shipping">local_shipping</span>
+<span>Entrega em até 2 horas na Grande SP</span>
+</div>
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-xs text-secondary" data-icon="shield">shield</span>
+<span>Fórmula toque seco resistente ao suor</span>
+</div>
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-xs text-secondary" data-icon="water_drop">water_drop</span>
+<span>Ação pós-sol calmante</span>
+</div>
+</div>
+<div class="text-[9px] text-right text-slate-400 font-code-sm">11:15 · Enviada com opt-in</div>
+<!-- Interactive CTA Buttons -->
+<div class="flex flex-col gap-1.5 pt-1 border-t border-slate-100">
+<button class="w-full py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-title-md text-[11px] rounded border border-emerald-200 flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="bolt">bolt</span>
+                    Receber em 2h
+                  </button>
+<button class="w-full py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-700 font-title-md text-[11px] rounded border border-slate-200 flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="support_agent">support_agent</span>
+                    Falar com Farmacêutico
+                  </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card Footer & Actions -->
+<div class="p-3 border-t border-outline-variant/20 bg-surface-container-lowest flex flex-col gap-2.5">
+<div class="flex items-center justify-between text-body-sm font-code-sm">
+<span class="text-emerald-700 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
+                Opt-in Regulamentado
+              </span>
+<span class="text-outline">Tom Informativo &amp; Ágil</span>
+</div>
+<div class="grid grid-cols-3 gap-1.5 pt-1">
+<button class="py-1.5 px-1 rounded-md border border-outline-variant/30 hover:bg-surface-container text-on-surface font-title-md text-[11px] flex items-center justify-center gap-1 transition-colors" title="Editar no Studio">
+<span class="material-symbols-outlined text-xs" data-icon="edit">edit</span>
+<span>Editar</span>
+</button>
+<button class="py-1.5 px-1 rounded-md border border-outline-variant/30 hover:bg-surface-container text-secondary font-title-md text-[11px] flex items-center justify-center gap-1 transition-colors" title="Ajustar com IA">
+<span class="material-symbols-outlined text-xs" data-icon="auto_fix_high">auto_fix_high</span>
+<span>Ajustar</span>
+</button>
+<button class="py-1.5 px-1 rounded-md bg-surface-container hover:bg-surface-container-high text-on-surface font-title-md text-[11px] flex items-center justify-center gap-1 transition-colors" title="Visualizar">
+<span class="material-symbols-outlined text-xs" data-icon="visibility">visibility</span>
+<span>Ver</span>
+</button>
+</div>
+</div>
+</article>
+</section>
+</main>
+<!-- ======================================================== -->
+<!-- 5. COMPLIANCE & HUMAN OVERSIGHT BOTTOM DRAWER / PANEL     -->
+<!-- ======================================================== -->
+<footer class="fixed bottom-0 left-72 right-0 bg-surface-container-lowest/95 backdrop-blur-md border-t border-outline-variant/30 px-8 py-3.5 z-30 shadow-md">
+<div class="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<!-- Governance Warning / Badge -->
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container text-secondary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-lg" data-icon="gavel">gavel</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-label-md font-bold text-on-surface flex items-center gap-1.5">
+              Garantia de Governança Criativa
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+</span>
+<p class="font-body-sm text-body-sm text-outline leading-tight max-w-2xl">
+              Nenhuma peça é veiculada automaticamente. Todos os textos, imagens e alegações foram parametrizados pela IA e aguardam aprovação formal do time de Marketing.
+            </p>
+</div>
+</div>
+<!-- Fast Batch Actions -->
+<div class="flex flex-wrap items-center gap-2.5 flex-shrink-0">
+<button class="px-3 py-2 rounded-lg border border-outline-variant/40 hover:bg-surface-container text-on-surface font-title-md text-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="select_all">select_all</span>
+<span>Selecionar todas (4)</span>
+</button>
+<button class="px-3 py-2 rounded-lg border border-outline-variant/40 hover:bg-surface-container text-on-surface font-title-md text-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-sm text-outline" data-icon="compare">compare</span>
+<span>Comparar Variações</span>
+</button>
+<button class="px-3 py-2 rounded-lg border border-outline-variant/40 hover:bg-surface-container text-on-surface font-title-md text-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-sm text-outline" data-icon="file_download">file_download</span>
+<span>Exportar Pacote (.ZIP)</span>
+</button>
+<button class="px-4 py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-title-md text-label-md font-bold flex items-center gap-2 shadow-sm transition-all active:scale-95">
+<span>Avançar para Revisão e Aprovação (Passo 4)</span>
+<span class="material-symbols-outlined text-base" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

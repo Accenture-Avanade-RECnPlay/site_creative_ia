@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pague Menos Creative Hub | Biblioteca de Referências</title>
+<!-- Google Fonts: Hanken Grotesk & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-container": "#81aeff",
+            "on-primary-fixed": "#410001",
+            "tertiary-container": "#0077b4",
+            "surface-tint": "#c0000c",
+            "surface-container-low": "#f2f3ff",
+            "surface-variant": "#dae2fd",
+            "secondary-fixed-dim": "#abc7ff",
+            "on-primary-container": "#fff5f3",
+            "on-secondary-fixed": "#001b3f",
+            "primary-container": "#e30613",
+            "on-surface": "#131b2e",
+            "primary-fixed": "#ffdad5",
+            "on-error-container": "#93000a",
+            "on-secondary-container": "#004085",
+            "outline-variant": "#e9bcb6",
+            "surface-container-highest": "#dae2fd",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#d7e3ff",
+            "surface-container": "#eaedff",
+            "inverse-primary": "#ffb4aa",
+            "primary-fixed-dim": "#ffb4aa",
+            "secondary": "#2a5da9",
+            "on-secondary-fixed-variant": "#00458f",
+            "error-container": "#ffdad6",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary": "#ffffff",
+            "surface-container-high": "#e2e7ff",
+            "surface-bright": "#faf8ff",
+            "surface": "#faf8ff",
+            "on-surface-variant": "#5e3f3b",
+            "tertiary-fixed": "#cce5ff",
+            "on-tertiary-fixed": "#001d31",
+            "inverse-surface": "#283044",
+            "on-tertiary-container": "#f2f7ff",
+            "on-tertiary": "#ffffff",
+            "inverse-on-surface": "#eef0ff",
+            "tertiary-fixed-dim": "#93ccff",
+            "surface-dim": "#d2d9f4",
+            "outline": "#936e69",
+            "background": "#faf8ff",
+            "on-primary": "#ffffff",
+            "on-primary-fixed-variant": "#930007",
+            "error": "#ba1a1a",
+            "tertiary": "#005d8f",
+            "primary": "#b5000b",
+            "on-background": "#131b2e",
+            "on-tertiary-fixed-variant": "#004b73"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem",
+            "margin-mobile": "1rem",
+            "space-md": "1rem",
+            "margin": "2rem",
+            "gutter": "1.5rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "gutter-mobile": "0.75rem"
+          },
+          "fontFamily": {
+            "headline-lg-mobile": ["Hanken Grotesk"],
+            "title-md": ["Hanken Grotesk"],
+            "body-lg": ["Hanken Grotesk"],
+            "body-sm": ["Hanken Grotesk"],
+            "body-md": ["Hanken Grotesk"],
+            "code-sm": ["JetBrains Mono"],
+            "headline-lg": ["Hanken Grotesk"],
+            "headline-sm": ["Hanken Grotesk"],
+            "headline-md": ["Hanken Grotesk"],
+            "display-lg": ["Hanken Grotesk"],
+            "label-md": ["Hanken Grotesk"]
+          },
+          "fontSize": {
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "code-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-md": ["13px", { "lineHeight": "18px", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md antialiased min-h-screen flex selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- ======================================================== -->
+<!-- SIDEBAR (SideNavBar Shared Component)                     -->
+<!-- ======================================================== -->
+<aside class="fixed top-0 left-0 h-screen w-72 z-40 bg-surface-container-lowest border-r border-outline-variant/30 flex flex-col justify-between p-4">
+<div class="flex flex-col gap-5">
+<!-- Brand Anchor Header -->
+<div class="flex items-center gap-3 px-2 py-1">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary font-headline-md font-bold shadow-sm">
+          P
+        </div>
+<div class="flex flex-col">
+<span class="text-headline-sm font-headline-sm font-bold text-secondary tracking-tight">Pague Menos</span>
+<span class="text-body-sm font-body-sm text-outline">Marketing Studio</span>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full bg-primary-container hover:bg-primary text-on-primary font-headline-sm text-body-md py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 transition-all duration-150 shadow-sm active:scale-95">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span>Nova Campanha</span>
+</button>
+<!-- Main Navigation Tabs -->
+<nav class="flex flex-col gap-1">
+<!-- 1. Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- 2. Briefing Inteligente -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span>Briefing Inteligente</span>
+</a>
+<!-- 3. Conceitos Criativos -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="lightbulb">lightbulb</span>
+<span>Conceitos Criativos</span>
+</a>
+<!-- 4. Adaptações Multicanal -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="dynamic_feed">dynamic_feed</span>
+<span>Adaptações Multicanal</span>
+</a>
+<!-- 5. Editor com IA -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="auto_fix_high">auto_fix_high</span>
+<span>Editor com IA</span>
+</a>
+<!-- 6. Revisão & Aprovação -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+<span>Revisão &amp; Aprovação</span>
+</a>
+<!-- 7. Biblioteca de Referências (ACTIVE STATE) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-surface-container text-primary font-bold transition-colors duration-150 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<span>Biblioteca de Referências</span>
+</a>
+<!-- 8. Histórico & Produtividade -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="history_toggle_off">history_toggle_off</span>
+<span>Histórico &amp; Produtividade</span>
+</a>
+</nav>
+</div>
+<!-- SideNav Footer Tabs -->
+<div class="flex flex-col gap-1 pt-4 border-t border-outline-variant/30">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Configurações</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="help_center">help_center</span>
+<span>Ajuda &amp; Suporte</span>
+</a>
+<!-- Quick AI Engine Status badge -->
+<div class="mt-2 p-2.5 rounded-lg bg-surface-container-low border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-body-sm font-code-sm text-secondary">IA Compliance Ativa</span>
+</div>
+<span class="text-body-sm font-code-sm text-outline">v2.4</span>
+</div>
+</div>
+</aside>
+<!-- ======================================================== -->
+<!-- MAIN WORKSPACE CANVAS                                     -->
+<!-- ======================================================== -->
+<div class="ml-72 flex-1 flex flex-col min-w-0">
+<!-- TopNavBar Shared Component -->
+<header class="docked full-width top sticky top-0 z-30 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/30 flex items-center justify-between w-full h-16 px-6">
+<!-- Search Input Area -->
+<div class="flex items-center gap-4 flex-1 max-w-2xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-xl pointer-events-none" data-icon="search">search</span>
+<input class="w-full pl-11 pr-4 py-2 bg-surface-container-lowest border border-outline-variant/40 rounded-lg text-body-md font-body-md text-on-surface placeholder-outline focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/15 transition-all" placeholder="Buscar cores, templates, copies ou diretrizes regulatórias..." type="text"/>
+<kbd class="hidden md:inline-flex absolute right-3 top-1/2 -translate-y-1/2 px-1.5 py-0.5 text-body-sm font-code-sm text-outline bg-surface-container rounded border border-outline-variant/30">⌘K</kbd>
+</div>
+</div>
+<!-- Right Header Actions -->
+<div class="flex items-center gap-3 ml-6">
+<button class="bg-primary-container hover:bg-primary text-on-primary font-headline-sm text-label-md py-2 px-3.5 rounded-lg flex items-center gap-1.5 transition-all duration-150 active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-lg" data-icon="add">add</span>
+<span>Adicionar Referência</span>
+</button>
+<div class="h-6 w-px bg-outline-variant/40 mx-1"></div>
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all active:scale-95 relative" title="Notificações">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary"></span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all active:scale-95" title="Ajuda">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<div class="flex items-center gap-2 pl-2">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-label-md" title="Foto de perfil do usuário">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Content Container -->
+<main class="p-8 flex flex-col gap-6 max-w-[1600px] w-full mx-auto">
+<!-- Top Title & Description Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-2 text-body-sm font-label-md text-outline mb-1">
+<span>Creative AI Hub</span>
+<span class="text-xs">/</span>
+<span class="text-secondary font-semibold">Biblioteca de Referências</span>
+</div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface tracking-tight">Biblioteca de Marca &amp; Central de Diretrizes</h1>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">Repositório institucional homologado que instrui os prompts, embeddings e templates da inteligência artificial criativa.</p>
+</div>
+<div class="flex items-center gap-2 self-start md:self-auto">
+<button class="px-3.5 py-2 rounded-lg border border-outline-variant/50 text-secondary bg-surface-container-lowest hover:bg-surface-container font-label-md text-label-md flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="file_download">file_download</span>
+<span>Exportar Brandbook (.PDF)</span>
+</button>
+<button class="px-3.5 py-2 rounded-lg bg-secondary text-on-secondary hover:bg-secondary/90 font-label-md text-label-md flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="sync">sync</span>
+<span>Sincronizar com Motor IA</span>
+</button>
+</div>
+</div>
+<!-- Subtle Regulatory / Guidance Banner -->
+<div class="bg-surface-container-low border border-secondary-container/40 rounded-xl p-4 flex items-start gap-3.5 shadow-sm">
+<div class="w-8 h-8 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-xl" data-icon="policy">policy</span>
+</div>
+<div class="flex-1 text-body-sm font-body-sm leading-relaxed text-on-surface">
+<strong class="font-headline-sm text-secondary font-semibold">Diretrizes Oficiais &amp; Exemplos Simulados:</strong>
+          As regras e assets demonstrados abaixo orientam o motor de inteligência artificial na geração de peças compatíveis com o <strong class="font-semibold text-on-surface">Brandbook Pague Menos 2025</strong> e regulamentações do varejo farmacêutico (Anvisa RDC 96/2008). Todas as saídas geradas por IA herdam estes parâmetros de conformidade visual e textual.
+        </div>
+<button class="text-outline hover:text-on-surface p-1 rounded transition-colors" title="Fechar aviso">
+<span class="material-symbols-outlined text-sm" data-icon="close">close</span>
+</button>
+</div>
+<!-- Content Navigation Tabs -->
+<div class="border-b border-outline-variant/30 flex items-center gap-1 overflow-x-auto no-scrollbar">
+<!-- Tab 1 (Active) -->
+<button class="px-4 py-3 font-headline-sm text-label-md text-primary font-bold border-b-2 border-primary flex items-center gap-2 shrink-0">
+<span class="material-symbols-outlined text-lg" data-icon="verified_user">verified_user</span>
+<span>Identidade &amp; Brandbook</span>
+<span class="ml-1 text-xs px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-code-sm">v2.5</span>
+</button>
+<!-- Tab 2 -->
+<button class="px-4 py-3 font-body-md text-label-md text-on-surface-variant hover:text-on-surface flex items-center gap-2 shrink-0 transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="palette">palette</span>
+<span>Logotipo &amp; Paleta de Cores</span>
+</button>
+<!-- Tab 3 -->
+<button class="px-4 py-3 font-body-md text-label-md text-on-surface-variant hover:text-on-surface flex items-center gap-2 shrink-0 transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="record_voice_over">record_voice_over</span>
+<span>Tom de Voz &amp; Vocabulário</span>
+</button>
+<!-- Tab 4 -->
+<button class="px-4 py-3 font-body-md text-label-md text-on-surface-variant hover:text-on-surface flex items-center gap-2 shrink-0 transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="dashboard_customize">dashboard_customize</span>
+<span>Templates Aprovados</span>
+<span class="ml-1 text-xs px-2 py-0.5 rounded-full bg-surface-container text-outline font-code-sm">24</span>
+</button>
+<!-- Tab 5 -->
+<button class="px-4 py-3 font-body-md text-label-md text-on-surface-variant hover:text-on-surface flex items-center gap-2 shrink-0 transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="inventory_2">inventory_2</span>
+<span>Catálogo de Produtos (SKUs)</span>
+</button>
+<!-- Tab 6 -->
+<button class="px-4 py-3 font-body-md text-label-md text-on-surface-variant hover:text-on-surface flex items-center gap-2 shrink-0 transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="approval">approval</span>
+<span>Peças Homologadas</span>
+</button>
+</div>
+<!-- Quick Filter Chips & Context Controls -->
+<div class="flex flex-wrap items-center justify-between gap-4 py-1">
+<div class="flex flex-wrap items-center gap-2.5">
+<div class="flex items-center gap-1.5 text-body-sm font-label-md text-outline mr-2">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+<span>Filtros rápidos:</span>
+</div>
+<!-- Channel Filter -->
+<div class="relative inline-block">
+<button class="px-3 py-1.5 bg-surface-container-lowest border border-outline-variant/40 rounded-lg text-body-sm font-label-md text-on-surface hover:bg-surface-container flex items-center gap-1.5 transition-colors">
+<span class="text-outline">Canal:</span>
+<span class="font-semibold text-secondary">Todos (Instagram, PDV...)</span>
+<span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+<!-- Region Filter -->
+<div class="relative inline-block">
+<button class="px-3 py-1.5 bg-surface-container-lowest border border-outline-variant/40 rounded-lg text-body-sm font-label-md text-on-surface hover:bg-surface-container flex items-center gap-1.5 transition-colors">
+<span class="text-outline">Região:</span>
+<span class="font-semibold text-secondary">Nacional (Nordeste/Sudeste)</span>
+<span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+<!-- Status Filter Pills -->
+<div class="flex items-center bg-surface-container p-0.5 rounded-lg border border-outline-variant/20">
+<button class="px-2.5 py-1 rounded-md bg-secondary text-on-secondary text-body-sm font-label-md shadow-xs">Todos</button>
+<button class="px-2.5 py-1 rounded-md text-on-surface-variant hover:text-on-surface text-body-sm font-label-md transition-colors">Aprovado</button>
+<button class="px-2.5 py-1 rounded-md text-on-surface-variant hover:text-on-surface text-body-sm font-label-md transition-colors">Em Revisão</button>
+<button class="px-2.5 py-1 rounded-md text-on-surface-variant hover:text-on-surface text-body-sm font-label-md transition-colors">Simulado</button>
+</div>
+</div>
+<div class="flex items-center gap-2 text-body-sm font-body-sm text-outline">
+<span>Mostrando <strong>6</strong> módulos diretivos</span>
+<div class="flex items-center border border-outline-variant/40 rounded-lg overflow-hidden bg-surface-container-lowest">
+<button class="p-1.5 bg-surface-container text-primary" title="Visualização em Grade">
+<span class="material-symbols-outlined text-sm" data-icon="grid_view">grid_view</span>
+</button>
+<button class="p-1.5 text-outline hover:text-on-surface" title="Visualização em Lista">
+<span class="material-symbols-outlined text-sm" data-icon="view_list">view_list</span>
+</button>
+</div>
+</div>
+</div>
+<!-- ======================================================== -->
+<!-- MODULAR BENTO CARDS GRID (6 Specialized Cards)           -->
+<!-- ======================================================== -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- CARD 1: Paleta Oficial Pague Menos -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 hover:border-outline-variant transition-all duration-200 p-5 flex flex-col justify-between shadow-sm">
+<div>
+<!-- Card Header -->
+<div class="flex items-start justify-between gap-3 mb-3">
+<div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-code-sm bg-emerald-50 text-emerald-800 border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                  WCAG AAA Aprovado
+                </span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mt-2 font-bold">Paleta Oficial Pague Menos</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Tokens cromáticos fundamentais validados para geração automatizada e acessibilidade visual estrita.</p>
+</div>
+<button class="text-outline hover:text-on-surface p-1">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<!-- Color Palette Swatches -->
+<div class="grid grid-cols-2 gap-2.5 my-4">
+<!-- Swatch 1: Azul Institucional -->
+<div class="p-3 rounded-lg border border-outline-variant/30 flex flex-col justify-between h-24 relative overflow-hidden" style="background-color: #004691;">
+<div class="flex justify-between items-start text-white">
+<span class="text-xs font-label-md font-semibold">Azul Institucional</span>
+<span class="text-[10px] font-code-sm bg-black/30 px-1.5 py-0.5 rounded">Primário</span>
+</div>
+<div class="flex items-center justify-between text-white/95">
+<code class="text-xs font-code-sm font-bold tracking-wide">#004691</code>
+<span class="text-[11px] font-code-sm">Ratio 8.9:1</span>
+</div>
+</div>
+<!-- Swatch 2: Vermelho Destaque -->
+<div class="p-3 rounded-lg border border-outline-variant/30 flex flex-col justify-between h-24 relative overflow-hidden" style="background-color: #E30613;">
+<div class="flex justify-between items-start text-white">
+<span class="text-xs font-label-md font-semibold">Vermelho Destaque</span>
+<span class="text-[10px] font-code-sm bg-black/30 px-1.5 py-0.5 rounded">Conversão</span>
+</div>
+<div class="flex items-center justify-between text-white/95">
+<code class="text-xs font-code-sm font-bold tracking-wide">#E30613</code>
+<span class="text-[11px] font-code-sm">Ratio 4.8:1</span>
+</div>
+</div>
+<!-- Swatch 3: Branco Puro -->
+<div class="p-3 rounded-lg border border-outline-variant/30 flex flex-col justify-between h-20 bg-white">
+<div class="flex justify-between items-start text-on-surface">
+<span class="text-xs font-label-md font-semibold">Branco Puro</span>
+<span class="text-[10px] font-code-sm bg-surface-container px-1 rounded text-outline">Fundo</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<code class="text-xs font-code-sm font-semibold">#FFFFFF</code>
+<span class="text-[11px] font-code-sm text-outline">Base Base</span>
+</div>
+</div>
+<!-- Swatch 4: Cinzas & Apoio -->
+<div class="p-3 rounded-lg border border-outline-variant/30 flex flex-col justify-between h-20 bg-surface-container">
+<div class="flex justify-between items-start text-on-surface">
+<span class="text-xs font-label-md font-semibold">Cinza Slate Soft</span>
+<span class="text-[10px] font-code-sm bg-white px-1 rounded text-outline">Superfície</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<code class="text-xs font-code-sm font-semibold">#F8FAFC</code>
+<span class="text-[11px] font-code-sm text-outline">Estrutural</span>
+</div>
+</div>
+</div>
+<!-- Rules Summary -->
+<div class="p-3 rounded-lg bg-surface-container-low border border-outline-variant/30 text-body-sm font-body-sm text-on-surface space-y-1">
+<div class="flex items-center gap-1.5 font-semibold text-secondary">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+<span>Regra de Contraste da IA:</span>
+</div>
+<p class="text-xs text-on-surface-variant">Textos secundários em cards azuis utilizam exclusivamente branco (#FFF) com peso semi-bold ou superior.</p>
+</div>
+</div>
+<!-- Card Actions -->
+<div class="flex items-center justify-between pt-4 mt-4 border-t border-outline-variant/30">
+<button class="text-secondary hover:text-primary font-label-md text-body-sm font-semibold flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-base" data-icon="content_copy">content_copy</span>
+<span>Copiar Tokens JSON</span>
+</button>
+<button class="px-3 py-1.5 bg-surface-container hover:bg-surface-container-high rounded-lg text-on-surface text-body-sm font-label-md transition-all">
+              Visualizar Detalhes
+            </button>
+</div>
+</div>
+<!-- CARD 2: Manual de Uso do Logotipo -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 hover:border-outline-variant transition-all duration-200 p-5 flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-start justify-between gap-3 mb-3">
+<div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-code-sm bg-secondary-fixed text-on-secondary-fixed border border-secondary-container">
+<span class="material-symbols-outlined text-xs" data-icon="verified">verified</span>
+                  Regra Oficial Homologada
+                </span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mt-2 font-bold">Manual de Uso do Logotipo</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Parâmetros de proteção, respiração e coerência vetorial nos formatos digital e físico.</p>
+</div>
+<button class="text-outline hover:text-on-surface p-1">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<!-- Logo Grid Visualization -->
+<div class="border border-dashed border-outline-variant/60 rounded-lg p-4 bg-surface-container-low flex flex-col items-center justify-center my-3 text-center relative">
+<div class="w-full flex items-center justify-between mb-2">
+<span class="text-[10px] font-code-sm text-outline">Respiro Mínimo: 1.5x 'P'</span>
+<span class="text-[10px] font-code-sm text-secondary font-medium">Vetorial 100% Nativo</span>
+</div>
+<!-- Simulated Pague Menos Logo Safe Area Box -->
+<div class="border border-primary/30 bg-white p-3 rounded-lg shadow-2xs flex items-center gap-2.5">
+<div class="w-8 h-8 rounded bg-primary-container text-white flex items-center justify-center font-bold text-sm">P</div>
+<div class="text-left leading-tight">
+<div class="font-headline-md font-bold text-secondary text-base leading-none">pague menos</div>
+<div class="text-[9px] font-bold text-primary tracking-wide">FARMÁCIA</div>
+</div>
+</div>
+<span class="text-[11px] font-code-sm text-outline mt-2">Área de Não-Interferência Isolada</span>
+</div>
+<!-- Forbidden / Prohibited Items -->
+<div class="space-y-1.5 mt-3">
+<div class="flex items-center gap-2 text-xs text-error font-body-sm">
+<span class="material-symbols-outlined text-sm shrink-0" data-icon="cancel">cancel</span>
+<span>Proibido distorcer, rotacionar ou alterar proporção X:Y</span>
+</div>
+<div class="flex items-center gap-2 text-xs text-error font-body-sm">
+<span class="material-symbols-outlined text-sm shrink-0" data-icon="cancel">cancel</span>
+<span>Não aplicar sombras projetadas ou filtros fluorescentes</span>
+</div>
+<div class="flex items-center gap-2 text-xs text-on-surface font-body-sm">
+<span class="material-symbols-outlined text-sm text-emerald-600 shrink-0" data-icon="check_circle">check_circle</span>
+<span>Permitido versão Monocromática (Branco sobre Azul / Preto)</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 mt-4 border-t border-outline-variant/30">
+<button class="text-secondary hover:text-primary font-label-md text-body-sm font-semibold flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-base" data-icon="content_copy">content_copy</span>
+<span>Copiar Regra IA</span>
+</button>
+<button class="px-3 py-1.5 bg-surface-container hover:bg-surface-container-high rounded-lg text-on-surface text-body-sm font-label-md transition-all">
+              Visualizar Detalhes
+            </button>
+</div>
+</div>
+<!-- CARD 3: Tom de Voz: Acolhedor & Cuidadoso -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 hover:border-outline-variant transition-all duration-200 p-5 flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-start justify-between gap-3 mb-3">
+<div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-code-sm bg-secondary-fixed text-on-secondary-fixed border border-secondary-container">
+<span class="material-symbols-outlined text-xs" data-icon="campaign">campaign</span>
+                  Diretriz Textual Ativa
+                </span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mt-2 font-bold">Tom de Voz: Acolhedor &amp; Cuidadoso</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">A comunicação da 'Farmácia do Coração': proximidade genuína, clareza e empatia preventiva.</p>
+</div>
+<button class="text-outline hover:text-on-surface p-1">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<!-- Two-Column Lexicon Box -->
+<div class="grid grid-cols-2 gap-3 my-3">
+<!-- Recommended -->
+<div class="bg-emerald-50/70 border border-emerald-200/80 rounded-lg p-3">
+<div class="flex items-center gap-1 text-emerald-800 font-label-md text-xs font-semibold mb-2">
+<span class="material-symbols-outlined text-sm" data-icon="thumb_up">thumb_up</span>
+<span>Termos Recomendados</span>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="text-[11px] font-label-md px-2 py-0.5 rounded bg-white text-emerald-800 border border-emerald-200">cuidado</span>
+<span class="text-[11px] font-label-md px-2 py-0.5 rounded bg-white text-emerald-800 border border-emerald-200">saúde preventiva</span>
+<span class="text-[11px] font-label-md px-2 py-0.5 rounded bg-white text-emerald-800 border border-emerald-200">bem-estar</span>
+<span class="text-[11px] font-label-md px-2 py-0.5 rounded bg-white text-emerald-800 border border-emerald-200">economia real</span>
+<span class="text-[11px] font-label-md px-2 py-0.5 rounded bg-white text-emerald-800 border border-emerald-200">atenção farmacêutica</span>
+</div>
+</div>
+<!-- Forbidden -->
+<div class="bg-red-50/70 border border-red-200/80 rounded-lg p-3">
+<div class="flex items-center gap-1 text-red-800 font-label-md text-xs font-semibold mb-2">
+<span class="material-symbols-outlined text-sm" data-icon="thumb_down">thumb_down</span>
+<span>Termos a Evitar / Proibidos</span>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="text-[11px] font-label-md px-2 py-0.5 rounded bg-white text-red-800 border border-red-200 line-through">curas milagrosas</span>
+<span class="text-[11px] font-label-md px-2 py-0.5 rounded bg-white text-red-800 border border-red-200 line-through">jargões médicos</span>
+<span class="text-[11px] font-label-md px-2 py-0.5 rounded bg-white text-red-800 border border-red-200 line-through">estereótipos regionais</span>
+<span class="text-[11px] font-label-md px-2 py-0.5 rounded bg-white text-red-800 border border-red-200 line-through">urgência agressiva</span>
+</div>
+</div>
+</div>
+<!-- Example Prompt Persona -->
+<div class="bg-surface-container-low p-2.5 rounded-lg border border-outline-variant/30 text-xs font-code-sm text-on-surface">
+<span class="text-secondary font-bold">Prompt Injetado:</span> "Escreva como um farmacêutico acolhedor de bairro: empático, prestativo e tecnicamente seguro."
+            </div>
+</div>
+<div class="flex items-center justify-between pt-4 mt-4 border-t border-outline-variant/30">
+<button class="text-secondary hover:text-primary font-label-md text-body-sm font-semibold flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-base" data-icon="content_copy">content_copy</span>
+<span>Copiar Vocabulário</span>
+</button>
+<button class="px-3 py-1.5 bg-surface-container hover:bg-surface-container-high rounded-lg text-on-surface text-body-sm font-label-md transition-all">
+              Visualizar Detalhes
+            </button>
+</div>
+</div>
+<!-- CARD 4: Template Instagram Feed 4:5 - Proteção Solar -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 hover:border-outline-variant transition-all duration-200 p-5 flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-start justify-between gap-3 mb-3">
+<div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-code-sm bg-emerald-50 text-emerald-800 border border-emerald-200">
+<span class="material-symbols-outlined text-xs" data-icon="check_circle">check_circle</span>
+                  Template Aprovado
+                </span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mt-2 font-bold">Template Instagram Feed 4:5 - Proteção Solar</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Grid de proporções seguras para campanhas de dermocosméticos de verão.</p>
+</div>
+<button class="text-outline hover:text-on-surface p-1">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<!-- Mock Preview Diagram (4:5 Ratio Visual) -->
+<div class="bg-surface-container rounded-lg p-3 my-3 flex gap-3 items-center">
+<div class="w-24 h-30 shrink-0 bg-surface-container-lowest rounded border border-outline-variant/60 flex flex-col overflow-hidden relative shadow-2xs">
+<!-- 70% Photo Area -->
+<div class="h-[68%] bg-surface-container-high relative overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="A clean, bright pharmaceutical cosmetic product mockup of sunscreen bottles on a minimalist pedestal, illuminated by soft natural sunlight with warm skin tones and crisp blue studio lighting that evokes health, wellness, and medical clinical purity in a high-end commercial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBs7ilXP8WKX0QYq2k8X9yt4_lxC99urpaghdxD39twd0yIFplDwIwvAzny4aULJC6J3doqULIt65s1Fxq0Qr6DsVwSQdGxrZzyl3J9L_jCKLq9bmsh6eG9NOCHECyDHlS3FtJEktmP-MXdss2hR7t3yMKQ3fEBnTrXXMhF1AjJRbe06aHyykA6bJqGk9WrMcp75tw4xvmpjaTRKJQI06mjL1m9UkqkjTrADCTyZQ8NXEPy3yqalxOetw"/>
+<span class="absolute bottom-1 right-1 text-[8px] bg-black/60 text-white px-1 rounded font-code-sm">70% Foto</span>
+</div>
+<!-- 30% Text Area -->
+<div class="h-[32%] bg-white p-1 flex flex-col justify-between">
+<div class="space-y-0.5">
+<div class="w-12 h-1 bg-secondary rounded"></div>
+<div class="w-8 h-1 bg-primary rounded"></div>
+</div>
+<div class="text-[6px] text-outline font-code-sm truncate">Disclaimer Anvisa</div>
+</div>
+</div>
+<!-- Metrics Checklist -->
+<div class="flex-1 space-y-1.5 text-xs">
+<div class="flex justify-between items-center text-on-surface">
+<span class="text-outline">Resolução:</span>
+<span class="font-code-sm font-bold">1080 x 1350 px</span>
+</div>
+<div class="flex justify-between items-center text-on-surface">
+<span class="text-outline">Safe Zone Texto:</span>
+<span class="font-code-sm text-secondary">30% Inferior</span>
+</div>
+<div class="flex justify-between items-center text-on-surface">
+<span class="text-outline">Rodapé Legal:</span>
+<span class="font-code-sm text-primary">Obrigatório RDC</span>
+</div>
+<div class="flex justify-between items-center text-on-surface">
+<span class="text-outline">Canal Primário:</span>
+<span class="font-code-sm">Instagram Ads</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 mt-4 border-t border-outline-variant/30">
+<button class="text-secondary hover:text-primary font-label-md text-body-sm font-semibold flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-base" data-icon="tune">tune</span>
+<span>Abrir no Editor IA</span>
+</button>
+<button class="px-3 py-1.5 bg-surface-container hover:bg-surface-container-high rounded-lg text-on-surface text-body-sm font-label-md transition-all">
+              Visualizar Detalhes
+            </button>
+</div>
+</div>
+<!-- CARD 5: Template WhatsApp Broadcast Promocional -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 hover:border-outline-variant transition-all duration-200 p-5 flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-start justify-between gap-3 mb-3">
+<div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-code-sm bg-emerald-50 text-emerald-800 border border-emerald-200">
+<span class="material-symbols-outlined text-xs" data-icon="check_circle">check_circle</span>
+                  Template Aprovado
+                </span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mt-2 font-bold">Template WhatsApp Broadcast Promocional</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Estrutura de mensagem conversacional com emojis comedidos e CTA seguro para CRM.</p>
+</div>
+<button class="text-outline hover:text-on-surface p-1">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<!-- Chat Preview Box -->
+<div class="bg-[#eef2f6] rounded-lg p-3 my-3 border border-outline-variant/40 relative font-body-sm">
+<div class="bg-white rounded-lg p-3 shadow-xs max-w-sm space-y-2 border-l-4 border-secondary">
+<div class="flex items-center gap-1 text-[11px] font-semibold text-secondary">
+<span>Farmácia Pague Menos</span>
+<span class="material-symbols-outlined text-xs text-secondary" data-icon="verified">verified</span>
+</div>
+<p class="text-xs text-on-surface leading-snug">
+                  Olá, <span class="bg-surface-container px-1 rounded font-code-sm text-primary">{Nome}</span>! 💙 Sua saúde merece atenção contínua. Separamos ofertas exclusivas da linha Sempre Bem para você hoje.
+                </p>
+<div class="bg-surface-container-low p-2 rounded text-[11px] text-on-surface-variant flex justify-between items-center border border-outline-variant/20">
+<span>Descontos de até <strong>40% OFF</strong></span>
+<span class="text-primary font-bold">Hoje</span>
+</div>
+<div class="pt-1 flex flex-col gap-1">
+<button class="w-full py-1.5 bg-secondary text-white text-xs font-label-md rounded flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="shopping_bag">shopping_bag</span>
+<span>Resgatar Desconto no App</span>
+</button>
+<span class="text-[9px] text-outline text-center">Para cancelar mensagens, responda SAIR.</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 mt-4 border-t border-outline-variant/30">
+<button class="text-secondary hover:text-primary font-label-md text-body-sm font-semibold flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-base" data-icon="content_copy">content_copy</span>
+<span>Copiar Prompt Texto</span>
+</button>
+<button class="px-3 py-1.5 bg-surface-container hover:bg-surface-container-high rounded-lg text-on-surface text-body-sm font-label-md transition-all">
+              Visualizar Detalhes
+            </button>
+</div>
+</div>
+<!-- CARD 6: Regulatório Farmacêutico Anvisa (RDC 96/2008) -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 hover:border-outline-variant transition-all duration-200 p-5 flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-start justify-between gap-3 mb-3">
+<div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-code-sm bg-amber-50 text-amber-900 border border-amber-200">
+<span class="material-symbols-outlined text-xs" data-icon="gavel">gavel</span>
+                  Regulamentação Vigente
+                </span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mt-2 font-bold">Regulatório Farmacêutico Anvisa (RDC 96/2008)</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Diretrizes compulsórias para publicidade de medicamentos isentos e dermocosméticos.</p>
+</div>
+<button class="text-outline hover:text-on-surface p-1">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<!-- Mandatory Legal Disclaimers Box -->
+<div class="space-y-2.5 my-3">
+<div class="p-2.5 rounded-lg bg-surface-container-low border border-outline-variant/30">
+<div class="text-[11px] font-bold text-on-surface uppercase tracking-wider mb-1 flex items-center justify-between">
+<span>Frase Obrigatória Geral (MIPs)</span>
+<span class="text-[10px] text-error font-code-sm">Artigo 12</span>
+</div>
+<p class="text-xs font-code-sm text-on-surface-variant italic">
+                  "SE PERSISTIREM OS SINTOMAS, O MÉDICO DEVERÁ SER CONSULTADO."
+                </p>
+<div class="text-[10px] text-outline mt-1 font-body-sm">Mínimo 20% da altura da peça em vídeo ou rodapé estático legível.</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low border border-outline-variant/30">
+<div class="text-[11px] font-bold text-on-surface uppercase tracking-wider mb-1 flex items-center justify-between">
+<span>Protetores Solares &amp; Dermos</span>
+<span class="text-[10px] text-secondary font-code-sm">Artigo 24</span>
+</div>
+<p class="text-xs font-code-sm text-on-surface-variant italic">
+                  "É NECESSÁRIA A REAPLICAÇÃO DO PRODUTO PARA MANTER A SUA EFETIVIDADE."
+                </p>
+</div>
+</div>
+<!-- Automated Engine Shield Indicator -->
+<div class="flex items-center gap-2 p-2 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-label-md">
+<span class="material-symbols-outlined text-base" data-icon="shield">shield</span>
+<span>Injeção Automática de Disclaimer habilitada no pipeline de exportação.</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 mt-4 border-t border-outline-variant/30">
+<button class="text-secondary hover:text-primary font-label-md text-body-sm font-semibold flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-base" data-icon="content_copy">content_copy</span>
+<span>Copiar Regras Legais</span>
+</button>
+<button class="px-3 py-1.5 bg-surface-container hover:bg-surface-container-high rounded-lg text-on-surface text-body-sm font-label-md transition-all">
+              Visualizar Detalhes
+            </button>
+</div>
+</div>
+</div>
+<!-- ======================================================== -->
+<!-- BOTTOM SUMMARY & AI INGESTION STATUS CARD                -->
+<!-- ======================================================== -->
+<div class="bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm mt-2">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-secondary-container/30 text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl" data-icon="dataset">dataset</span>
+</div>
+<div>
+<h4 class="text-headline-sm font-headline-sm font-bold text-on-surface">Base de Conhecimento RAG Atualizada</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">
+              Última indexação vetorial realizada em <strong>Hoje, às 14:32</strong>. 142 diretrizes e 32 templates homologados ativos para a regionalização Nordeste e Sudeste.
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-3 w-full md:w-auto justify-end">
+<button class="px-4 py-2 border border-outline-variant/50 hover:bg-surface-container rounded-lg text-body-sm font-label-md text-on-surface transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-base" data-icon="history">history</span>
+<span>Histórico de Versões</span>
+</button>
+<button class="px-4 py-2 bg-primary-container hover:bg-primary text-on-primary rounded-lg text-body-sm font-label-md font-semibold transition-all shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-base" data-icon="cloud_sync">cloud_sync</span>
+<span>Reindexar Todos os Embeddings</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Global App Footer -->
+<footer class="mt-auto px-8 py-4 border-t border-outline-variant/30 text-body-sm font-body-sm text-outline flex flex-col sm:flex-row items-center justify-between gap-2 bg-surface-container-lowest">
+<div class="flex items-center gap-2">
+<span class="font-bold text-secondary">Pague Menos Creative AI</span>
+<span>•</span>
+<span>Diretoria de Marketing &amp; Inovação Digital</span>
+</div>
+<div class="flex items-center gap-4 font-code-sm text-xs">
+<span>Em conformidade com RDC 96/2008</span>
+<span>•</span>
+<span class="flex items-center gap-1 text-emerald-700">
+<span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+          Sistema Operacional 100%
+        </span>
+</div>
+</footer>
+</div>
+</body></html>

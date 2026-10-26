@@ -1,0 +1,680 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Pague Menos Creative Hub - Briefing Inteligente</title>
+<!-- Google Fonts: Public Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            // Pague Menos Brand Color Tokens
+            primary: {
+              DEFAULT: "#004691",
+              hover: "#003670",
+              container: "#e8eff8",
+              "on-container": "#002047"
+            },
+            secondary: {
+              DEFAULT: "#E30613",
+              hover: "#c20510",
+              container: "#fee8e9",
+              "on-container": "#5f0106"
+            },
+            surface: {
+              DEFAULT: "#FFFFFF",
+              container: "#F8F9FA",
+              "container-lowest": "#FFFFFF",
+              "container-low": "#F3F4F6",
+              "container-high": "#E5E7EB",
+              "container-highest": "#D1D5DB"
+            },
+            "on-surface": "#1F2937",
+            "on-surface-variant": "#4B5563",
+            outline: "#9CA3AF",
+            "outline-variant": "#E5E7EB",
+            success: "#059669",
+            "success-container": "#ECFDF5"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["Public Sans", "sans-serif"],
+            display: ["Public Sans", "sans-serif"],
+            body: ["Public Sans", "sans-serif"],
+            label: ["Public Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Public Sans', sans-serif;
+      background-color: #f8f9fa;
+      color: #1F2937;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1;
+    }
+    /* Custom scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #d1d5db;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #9ca3af;
+    }
+  </style>
+</head>
+<body class="bg-surface-container text-on-surface antialiased min-h-screen flex">
+<!-- ================= SIDEBAR (SideNavBar Shared Component) ================= -->
+<aside class="fixed top-0 left-0 h-screen w-72 z-40 bg-surface-container-lowest border-r border-outline-variant/30 flex flex-col justify-between p-4 select-none">
+<div class="flex flex-col gap-6">
+<!-- Header Brand Logo -->
+<div class="flex items-center gap-3 px-2 pt-2">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white shadow-sm ring-2 ring-primary/10">
+<span class="material-symbols-outlined text-2xl font-bold">local_pharmacy</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="text-lg font-extrabold tracking-tight text-primary leading-none">Pague Menos</span>
+<span class="w-2 h-2 rounded-full bg-secondary inline-block"></span>
+</div>
+<span class="text-xs font-semibold text-secondary uppercase tracking-wider mt-0.5">Marketing Studio</span>
+</div>
+</div>
+<!-- Quick Action CTA -->
+<button class="w-full bg-primary hover:bg-primary-hover text-white text-sm font-semibold py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 transition-all shadow-sm active:scale-98">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+<span>Nova Campanha</span>
+</button>
+<!-- Navigation Tabs -->
+<nav class="flex flex-col gap-1">
+<!-- 1. Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 ease-in-out text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- 2. Briefing Inteligente (ACTIVE STATE) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-surface-container text-primary font-bold transition-colors duration-150 ease-in-out text-sm border-l-4 border-primary" href="#">
+<span class="material-symbols-outlined text-xl fill" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span>Briefing Inteligente</span>
+<span class="ml-auto flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+</span>
+</a>
+<!-- 3. Conceitos Criativos -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 ease-in-out text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-xl">lightbulb</span>
+<span>Conceitos Criativos</span>
+</a>
+<!-- 4. Adaptações Multicanal -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 ease-in-out text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-xl">dynamic_feed</span>
+<span>Adaptações Multicanal</span>
+</a>
+<!-- 5. Editor com IA -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 ease-in-out text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-xl">auto_fix_high</span>
+<span>Editor com IA</span>
+</a>
+<!-- 6. Revisão & Aprovação -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 ease-in-out text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-xl">verified</span>
+<span>Revisão &amp; Aprovação</span>
+</a>
+<!-- 7. Biblioteca de Referências -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 ease-in-out text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-xl">auto_stories</span>
+<span>Biblioteca de Referências</span>
+</a>
+<!-- 8. Histórico & Produtividade -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 ease-in-out text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-xl">history_toggle_off</span>
+<span>Histórico &amp; Produtividade</span>
+</a>
+</nav>
+</div>
+<!-- Sidebar Footer -->
+<div class="flex flex-col gap-2 pt-4 border-t border-outline-variant/30">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container text-xs font-medium transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">settings</span>
+<span>Configurações</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container text-xs font-medium transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">help_center</span>
+<span>Ajuda &amp; Suporte</span>
+</a>
+<!-- Current User Badge -->
+<div class="mt-2 p-2.5 bg-surface-container-low rounded-xl flex items-center gap-3 border border-outline-variant/50">
+<div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs">
+          TM
+        </div>
+<div class="flex flex-col overflow-hidden">
+<span class="text-xs font-bold text-on-surface truncate">Equipe Trade Marketing</span>
+<span class="text-[10px] text-on-surface-variant truncate">trade.mkt@paguemenos.com.br</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- ================= MAIN WRAPPER (Offset by Sidebar) ================= -->
+<div class="ml-72 flex-1 flex flex-col min-w-0">
+<!-- ================= STICKY TOP APP BAR ================= -->
+<header class="sticky top-0 z-30 h-16 w-full bg-surface-container-lowest/90 backdrop-blur-md px-8 flex items-center justify-between border-b border-outline-variant/30">
+<!-- Search Bar -->
+<div class="flex items-center w-96 max-w-md relative">
+<span class="material-symbols-outlined absolute left-3 text-outline text-xl pointer-events-none">search</span>
+<input class="w-full bg-surface-container pl-10 pr-4 py-2 text-xs rounded-lg border border-transparent focus:border-primary focus:bg-white focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Buscar campanhas, produtos ou briefs..." type="text">
+</div>
+<!-- Center status pill -->
+<div class="flex items-center gap-2 bg-primary-container/60 text-primary px-3 py-1.5 rounded-full border border-primary/20 text-xs font-semibold">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="material-symbols-outlined text-sm font-bold">bolt</span>
+<span>IA Ativa v3.4 · Modo Assistido</span>
+</div>
+<!-- Trailing Actions & Profile -->
+<div class="flex items-center gap-4">
+<!-- Notification button -->
+<button aria-label="Notificações" class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-xl">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<!-- Help icon -->
+<button aria-label="Ajuda" class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-xl">help</span>
+</button>
+<div class="h-6 w-px bg-outline-variant"></div>
+<!-- Trailing Primary Action -->
+<button class="bg-primary hover:bg-primary-hover text-white text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-1.5 shadow-sm transition-all active:scale-95">
+<span class="material-symbols-outlined text-base">add</span>
+<span>Nova Campanha</span>
+</button>
+<!-- Profile avatar button -->
+<div class="flex items-center gap-2 pl-1 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-secondary text-white font-bold text-xs flex items-center justify-center ring-2 ring-white">
+            PM
+          </div>
+</div>
+</div>
+</header>
+<!-- ================= MAIN CONTENT CANVAS ================= -->
+<main class="p-8 max-w-7xl mx-auto w-full space-y-6">
+<!-- 1. Header da Página -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-primary/10 text-primary border border-primary/20 tracking-wide">
+            Passo 1 de 4 · Estruturação de Campanha
+          </span>
+<span class="text-xs text-outline font-medium">Tempo estimado: 3 min</span>
+</div>
+<h1 class="text-2xl lg:text-3xl font-extrabold text-on-surface tracking-tight">
+          Vamos planejar sua próxima campanha
+        </h1>
+<p class="text-sm text-on-surface-variant max-w-3xl leading-relaxed">
+          Conte sua ideia. A IA ajuda a estruturar o briefing antes de criar as peças, garantindo total conformidade com a marca Pague Menos e regulamentações do varejo farmacêutico.
+        </p>
+</div>
+<!-- 2. Two-Column Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- ================= COLUNA ESQUERDA: ASSISTENTE & FORMULÁRIO (7 Cols) ================= -->
+<div class="lg:col-span-7 space-y-6">
+<!-- BLOCO DO ASSISTENTE CONVERSACIONAL DE IA -->
+<div class="bg-surface rounded-2xl border border-primary/20 shadow-sm overflow-hidden">
+<!-- Chat Header -->
+<div class="bg-gradient-to-r from-primary/5 via-primary-container/20 to-white px-5 py-3.5 border-b border-primary/10 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-secondary p-0.5 shadow-sm">
+<div class="w-full h-full bg-white rounded-[10px] flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg fill" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-on-surface">Assistente de Briefing</span>
+<span class="px-2 py-0.5 text-[10px] font-semibold bg-emerald-100 text-emerald-800 rounded-full">Pague Menos AI</span>
+</div>
+<p class="text-[11px] text-on-surface-variant">Sincronizado automaticamente com o formulário abaixo</p>
+</div>
+</div>
+<button class="text-xs font-semibold text-primary hover:text-primary-hover flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-base">refresh</span>
+                Reiniciar diálogo
+              </button>
+</div>
+<!-- Chat Message Thread -->
+<div class="p-5 space-y-4 bg-slate-50/50 max-h-[360px] overflow-y-auto">
+<!-- AI Bubble 1 -->
+<div class="flex items-start gap-3">
+<div class="w-7 h-7 rounded-full bg-primary text-white flex items-center justify-center flex-shrink-0 text-xs">
+<span class="material-symbols-outlined text-sm">smart_toy</span>
+</div>
+<div class="bg-white border border-outline-variant/60 rounded-2xl rounded-tl-sm p-3.5 shadow-xs max-w-[85%] text-xs leading-relaxed text-on-surface">
+                  Olá! Vou ajudar você a estruturar sua campanha. Para começar, qual é o principal objetivo desta comunicação?
+                </div>
+</div>
+<!-- User Bubble 1 -->
+<div class="flex items-start gap-3 justify-end">
+<div class="bg-primary text-white rounded-2xl rounded-tr-sm p-3.5 shadow-xs max-w-[85%] text-xs leading-relaxed">
+                  Quero uma campanha de cuidados para o verão, focando em protetor solar e pós-sol.
+                </div>
+<div class="w-7 h-7 rounded-full bg-secondary text-white flex items-center justify-center flex-shrink-0 text-xs font-bold">
+                  TM
+                </div>
+</div>
+<!-- AI Bubble 2 (Insightful) -->
+<div class="flex items-start gap-3">
+<div class="w-7 h-7 rounded-full bg-primary text-white flex items-center justify-center flex-shrink-0 text-xs">
+<span class="material-symbols-outlined text-sm">smart_toy</span>
+</div>
+<div class="bg-white border border-outline-variant/60 rounded-2xl rounded-tl-sm p-3.5 shadow-xs max-w-[88%] text-xs leading-relaxed text-on-surface space-y-2">
+<p>
+                    Ótimo! Para desenvolver uma proposta adequada, identifiquei oportunidade prioritária para as praças de <strong>Pernambuco</strong> e <strong>São Paulo</strong>.
+                  </p>
+<p>
+                    Gostaria de focar a veiculação em <strong>Instagram</strong> e <strong>WhatsApp</strong> com um tom acolhedor e informativo? Já pré-preenchi os dados preliminares no formulário.
+                  </p>
+</div>
+</div>
+</div>
+<!-- Quick Suggestion Action Pills -->
+<div class="px-5 py-2.5 bg-white border-t border-outline-variant/40 flex flex-wrap gap-2 items-center">
+<span class="text-[11px] font-semibold text-outline">Sugestões rápidas:</span>
+<button class="text-[11px] font-medium bg-surface-container hover:bg-primary-container hover:text-primary text-on-surface-variant px-3 py-1 rounded-full border border-outline-variant transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">add</span> Adicionar Protetor FPS 50
+              </button>
+<button class="text-[11px] font-medium bg-surface-container hover:bg-primary-container hover:text-primary text-on-surface-variant px-3 py-1 rounded-full border border-outline-variant transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">group</span> Focar em público familiar
+              </button>
+<button class="text-[11px] font-medium bg-surface-container hover:bg-primary-container hover:text-primary text-on-surface-variant px-3 py-1 rounded-full border border-outline-variant transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">location_on</span> Campanha regional NE/SE
+              </button>
+</div>
+<!-- Chat Input Field -->
+<div class="p-3 bg-white border-t border-outline-variant/50">
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container/70 pl-4 pr-24 py-2.5 rounded-xl border border-outline-variant/60 text-xs focus:ring-1 focus:ring-primary focus:bg-white focus:border-primary outline-none transition-all placeholder:text-outline" placeholder="Escreva instruções adicionais ou tire dúvidas com a IA..." type="text">
+<div class="absolute right-2 flex items-center gap-1">
+<button class="p-1.5 text-outline hover:text-primary rounded-lg transition-colors" title="Gravar voz">
+<span class="material-symbols-outlined text-lg">mic</span>
+</button>
+<button class="bg-primary hover:bg-primary-hover text-white p-1.5 rounded-lg flex items-center justify-center transition-all shadow-xs" title="Enviar mensagem">
+<span class="material-symbols-outlined text-base">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- FORMULÁRIO DETALHADO E INTUITIVO -->
+<div class="bg-white rounded-2xl border border-outline-variant/40 shadow-xs p-6 space-y-6">
+<div class="border-b border-outline-variant/40 pb-3 flex items-center justify-between">
+<div>
+<h2 class="text-base font-bold text-on-surface">Parâmetros Estruturados da Campanha</h2>
+<p class="text-xs text-on-surface-variant">Ajuste os dados pré-preenchidos ou complete os detalhes finos.</p>
+</div>
+<span class="text-xs font-semibold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-base">auto_awesome</span>
+                Auto-otimizado
+              </span>
+</div>
+<div class="space-y-5">
+<!-- 1. Nome da Campanha -->
+<div>
+<label class="block text-xs font-bold text-on-surface uppercase tracking-wider mb-1.5">
+                  Nome da Campanha <span class="text-secondary">*</span>
+</label>
+<input class="w-full px-3.5 py-2.5 bg-surface-container/30 border border-outline-variant rounded-xl text-xs font-medium text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" type="text" value="Verão com Cuidado 2025">
+</div>
+<!-- 2. Objetivo da Campanha -->
+<div>
+<label class="block text-xs font-bold text-on-surface uppercase tracking-wider mb-2">
+                  Objetivo Principal <span class="text-secondary">*</span>
+</label>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary text-white shadow-xs cursor-pointer">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                    Aumentar Vendas
+                    <span class="material-symbols-outlined text-xs">check</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary/10 text-primary border border-primary/30 cursor-pointer hover:bg-primary/20">
+<span class="material-symbols-outlined text-sm">campaign</span>
+                    Divulgar Produtos
+                    <span class="material-symbols-outlined text-xs">check</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-surface-container text-on-surface-variant border border-outline-variant cursor-pointer hover:bg-surface-container-high">
+                    Reconhecimento de Marca
+                  </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-surface-container text-on-surface-variant border border-outline-variant cursor-pointer hover:bg-surface-container-high">
+                    Engajamento Social
+                  </span>
+</div>
+</div>
+<!-- 3. Tema da Campanha -->
+<div>
+<label class="block text-xs font-bold text-on-surface uppercase tracking-wider mb-1.5">
+                  Tema da Campanha
+                </label>
+<input class="w-full px-3.5 py-2.5 bg-surface-container/30 border border-outline-variant rounded-xl text-xs font-medium text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" type="text" value="Proteção Solar e Hidratação Familiar">
+</div>
+<!-- 4. Produtos Participantes -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="block text-xs font-bold text-on-surface uppercase tracking-wider">
+                    Produtos Participantes (SKUs)
+                  </label>
+<span class="text-[11px] text-primary font-semibold cursor-pointer hover:underline">Importar da base Pague Menos</span>
+</div>
+<div class="p-3 bg-surface-container/30 border border-outline-variant rounded-xl flex flex-wrap gap-2 items-center">
+<!-- Tag 1 -->
+<div class="inline-flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg border border-outline-variant/80 text-xs shadow-2xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-medium text-on-surface">Protetor Solar FPS 50 200ml</span>
+<button class="text-outline hover:text-secondary transition-colors" title="Remover">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+<!-- Tag 2 -->
+<div class="inline-flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg border border-outline-variant/80 text-xs shadow-2xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-medium text-on-surface">Gel Hidratante Pós-Sol 150g</span>
+<button class="text-outline hover:text-secondary transition-colors" title="Remover">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+<!-- Add Action -->
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-dashed border-primary text-primary hover:bg-primary/5 text-xs font-semibold transition-all">
+<span class="material-symbols-outlined text-sm">add</span>
+                    Adicionar produto
+                  </button>
+</div>
+</div>
+<!-- 5. Público-Alvo & Regiões (2 colunas) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-bold text-on-surface uppercase tracking-wider mb-1.5">
+                    Público-Alvo
+                  </label>
+<div class="relative">
+<select class="w-full px-3.5 py-2.5 bg-surface-container/30 border border-outline-variant rounded-xl text-xs font-medium text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none appearance-none pr-8 cursor-pointer">
+<option selected="">Famílias com crianças e adultos expostos ao sol</option>
+<option>Praticantes de esportes ao ar livre</option>
+<option>Público sênior focado em saúde da pele</option>
+<option>Jovens adultos (Dermocosméticos &amp; Skincare)</option>
+</select>
+<span class="material-symbols-outlined text-outline absolute right-2.5 top-2.5 pointer-events-none text-base">expand_more</span>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-on-surface uppercase tracking-wider mb-1.5">
+                    Regiões de Destino
+                  </label>
+<div class="flex flex-wrap gap-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-2 rounded-lg text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+<span class="material-symbols-outlined text-xs">location_on</span> Pernambuco (Nordeste)
+                      <span class="material-symbols-outlined text-xs cursor-pointer hover:text-secondary">close</span>
+</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-2 rounded-lg text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+<span class="material-symbols-outlined text-xs">location_on</span> São Paulo (Sudeste)
+                      <span class="material-symbols-outlined text-xs cursor-pointer hover:text-secondary">close</span>
+</span>
+</div>
+</div>
+</div>
+<!-- 6. Canais Prioritários -->
+<div>
+<label class="block text-xs font-bold text-on-surface uppercase tracking-wider mb-2">
+                  Canais Prioritários <span class="text-secondary">*</span>
+</label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<!-- Instagram -->
+<div class="flex items-start gap-3 p-3 rounded-xl border-2 border-primary bg-primary-container/20 cursor-pointer">
+<input checked="" class="mt-0.5 rounded text-primary focus:ring-primary h-4 w-4" type="checkbox">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-base">photo_camera</span>
+<span class="text-xs font-bold text-on-surface">Instagram</span>
+<span class="text-[10px] px-1.5 py-0.2 bg-secondary/10 text-secondary font-bold rounded">Prioritário</span>
+</div>
+<p class="text-[11px] text-on-surface-variant mt-0.5">Post Feed (1:1), Stories (9:16) &amp; Carrossel Educativo</p>
+</div>
+</div>
+<!-- WhatsApp -->
+<div class="flex items-start gap-3 p-3 rounded-xl border-2 border-primary bg-primary-container/20 cursor-pointer">
+<input checked="" class="mt-0.5 rounded text-primary focus:ring-primary h-4 w-4" type="checkbox">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-emerald-600 text-base">chat</span>
+<span class="text-xs font-bold text-on-surface">WhatsApp</span>
+<span class="text-[10px] px-1.5 py-0.2 bg-emerald-100 text-emerald-800 font-bold rounded">Alta Conversão</span>
+</div>
+<p class="text-[11px] text-on-surface-variant mt-0.5">Mensagem Direta Promocional &amp; Catálogo de Ofertas</p>
+</div>
+</div>
+</div>
+</div>
+<!-- 7. Tom de Comunicação -->
+<div>
+<label class="block text-xs font-bold text-on-surface uppercase tracking-wider mb-2">
+                  Tom de Comunicação
+                </label>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 rounded-lg text-xs font-bold bg-primary text-white flex items-center gap-1 shadow-2xs">
+<span class="material-symbols-outlined text-xs">favorite</span> Acolhedor
+                  </span>
+<span class="px-3 py-1.5 rounded-lg text-xs font-bold bg-primary text-white flex items-center gap-1 shadow-2xs">
+<span class="material-symbols-outlined text-xs">info</span> Informativo
+                  </span>
+<span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-surface-container text-on-surface-variant border border-outline-variant hover:bg-surface-container-high cursor-pointer">
+                    Direto &amp; Urgente
+                  </span>
+<span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-surface-container text-on-surface-variant border border-outline-variant hover:bg-surface-container-high cursor-pointer">
+                    Descontraído &amp; Leve
+                  </span>
+</div>
+</div>
+<!-- 8. Mensagem Principal -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="block text-xs font-bold text-on-surface uppercase tracking-wider">
+                    Mensagem Principal (Conceito Chave)
+                  </label>
+<span class="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">auto_awesome</span> Sugerido pela IA
+                  </span>
+</div>
+<textarea class="w-full px-3.5 py-2.5 bg-surface-container/30 border border-outline-variant rounded-xl text-xs font-medium text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all leading-relaxed" rows="3">Proteja a saúde e o bem-estar de toda a família sob o sol com os melhores cuidados dermatológicos das farmácias Pague Menos.</textarea>
+</div>
+<!-- 9. Chamada para Ação (CTA) -->
+<div>
+<label class="block text-xs font-bold text-on-surface uppercase tracking-wider mb-1.5">
+                  Chamada para Ação (CTA)
+                </label>
+<input class="w-full px-3.5 py-2.5 bg-surface-container/30 border border-outline-variant rounded-xl text-xs font-medium text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" type="text" value="Garanta sua proteção com ofertas exclusivas">
+</div>
+<!-- 10. Período de Veiculação (Datas) -->
+<div>
+<label class="block text-xs font-bold text-on-surface uppercase tracking-wider mb-1.5">
+                  Período de Veiculação
+                </label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div class="flex items-center gap-2 bg-surface-container/30 border border-outline-variant rounded-xl px-3.5 py-2.5">
+<span class="material-symbols-outlined text-outline text-base">calendar_today</span>
+<div class="flex flex-col">
+<span class="text-[10px] text-outline font-semibold">Data de Início</span>
+<span class="text-xs font-medium text-on-surface">10/01/2025</span>
+</div>
+</div>
+<div class="flex items-center gap-2 bg-surface-container/30 border border-outline-variant rounded-xl px-3.5 py-2.5">
+<span class="material-symbols-outlined text-outline text-base">event_available</span>
+<div class="flex flex-col">
+<span class="text-[10px] text-outline font-semibold">Data de Término</span>
+<span class="text-xs font-medium text-on-surface">28/02/2025</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= COLUNA DIREITA: RESUMO & CONFORMIDADE (5 Cols Sticky) ================= -->
+<div class="lg:col-span-5 space-y-6 lg:sticky lg:top-24">
+<!-- Painel Principal de Resumo e Pré-Aprovação -->
+<div class="bg-surface rounded-2xl border border-outline-variant/60 shadow-md p-6 space-y-6">
+<!-- Header do Resumo -->
+<div class="flex items-center justify-between pb-4 border-b border-outline-variant/40">
+<div>
+<h3 class="text-base font-extrabold text-on-surface tracking-tight">Resumo do Briefing</h3>
+<p class="text-xs text-on-surface-variant">Conformidade e prontidão criativa em tempo real</p>
+</div>
+<span class="p-2 rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-xl">analytics</span>
+</span>
+</div>
+<!-- Medidor de Completude do Briefing -->
+<div class="bg-surface-container rounded-xl p-4 border border-outline-variant/30 space-y-2.5">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-on-surface flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                  Completude do Briefing
+                </span>
+<span class="text-xs font-extrabold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md">
+                  85% Preenchido
+                </span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container-high rounded-full h-2.5 overflow-hidden">
+<div class="bg-gradient-to-r from-primary to-emerald-500 h-2.5 rounded-full w-[85%] transition-all duration-500"></div>
+</div>
+<p class="text-[11px] text-emerald-800 font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+                Informações suficientes para gerar conceitos criativos de alta assertividade.
+              </p>
+</div>
+<!-- Checklist de Conformidade Antecipada -->
+<div class="space-y-3">
+<span class="text-xs font-bold text-on-surface uppercase tracking-wider block">
+                Validação de Diretrizes Pague Menos
+              </span>
+<div class="space-y-2">
+<!-- Checklist 1 -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container/60 border border-outline-variant/40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-600 text-lg">verified</span>
+<span class="text-xs font-medium text-on-surface">Diretriz Visual Pague Menos</span>
+</div>
+<span class="text-[11px] font-bold text-emerald-700">Compatível</span>
+</div>
+<!-- Checklist 2 -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container/60 border border-outline-variant/40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-600 text-lg">verified</span>
+<span class="text-xs font-medium text-on-surface">Conformidade Regulatória Anvisa</span>
+</div>
+<span class="text-[11px] font-bold text-emerald-700">Validada Preliminar</span>
+</div>
+<!-- Checklist 3 -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container/60 border border-outline-variant/40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-600 text-lg">verified</span>
+<span class="text-xs font-medium text-on-surface">Canais Configurados</span>
+</div>
+<span class="text-[11px] font-bold text-on-surface">Instagram &amp; WhatsApp</span>
+</div>
+<!-- Checklist 4 -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container/60 border border-outline-variant/40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-600 text-lg">verified</span>
+<span class="text-xs font-medium text-on-surface">Regiões Parametrizadas</span>
+</div>
+<span class="text-[11px] font-bold text-on-surface">PE &amp; SP</span>
+</div>
+</div>
+</div>
+<!-- Resumo Executivo em Bullet Points -->
+<div class="p-4 rounded-xl bg-primary/5 border border-primary/10 space-y-2">
+<span class="text-xs font-bold text-primary block">
+                Síntese da Estrutura Criativa:
+              </span>
+<ul class="text-xs text-on-surface-variant space-y-1.5 list-disc pl-4 leading-normal">
+<li><strong>Foco:</strong> Fotoproteção solar de alto FPS para verão nordestino e paulista.</li>
+<li><strong>Segmento:</strong> Saúde, proteção familiar e dermocosméticos de conveniência.</li>
+<li><strong>Formatos prioritários:</strong> Carrossel de benefícios no Instagram e cupom via WhatsApp.</li>
+<li><strong>Período crítico:</strong> Pico de calor entre janeiro e fevereiro de 2025.</li>
+</ul>
+</div>
+<!-- Alerta Informativo Discreto de Governança -->
+<div class="flex items-start gap-2.5 p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-900">
+<span class="material-symbols-outlined text-amber-600 text-base flex-shrink-0 mt-0.5">policy</span>
+<p class="text-[11px] leading-relaxed">
+                A IA sugere as melhores abordagens; a decisão criativa e a aprovação final permanecem com o time de Marketing.
+              </p>
+</div>
+<!-- CTAs de Ação -->
+<div class="space-y-3 pt-2">
+<!-- Botão Primário Vermelho Vibrante Pague Menos -->
+<button class="w-full bg-secondary hover:bg-secondary-hover text-white py-3.5 px-6 rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all active:scale-98">
+<span>Gerar Conceitos Criativos</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+<!-- Botão Secundário -->
+<div class="flex items-center gap-3">
+<button class="w-full py-2.5 px-4 rounded-xl border border-outline-variant hover:bg-surface-container font-semibold text-xs text-on-surface flex items-center justify-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-base">save</span>
+                  Salvar Rascunho
+                </button>
+<button class="py-2.5 px-3 rounded-xl border border-outline-variant hover:bg-surface-container font-semibold text-xs text-on-surface flex items-center justify-center transition-colors" title="Compartilhar Briefing">
+<span class="material-symbols-outlined text-base">share</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Micro Card: Suporte de Diretrizes de Marca -->
+<div class="p-4 rounded-xl bg-surface border border-outline-variant/40 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">menu_book</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-on-surface">Brandbook Pague Menos 2025</span>
+<span class="text-[10px] text-outline">Versão 4.2 atualizada com regras de Trade</span>
+</div>
+</div>
+<a class="text-xs font-bold text-primary hover:underline" href="#">Ver</a>
+</div>
+</div>
+</div>
+</main>
+<!-- Sub-footer discreto -->
+<footer class="mt-auto px-8 py-4 border-t border-outline-variant/30 text-center text-xs text-outline">
+      Pague Menos Creative AI Studio © 2025 · Todos os direitos reservados à Farmácias Pague Menos S.A.
+    </footer>
+</div>
+</body></html>
